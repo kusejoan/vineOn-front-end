@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { UserService } from "./user.service";
+import { withRouter } from "react-router-dom";
 
-const login = (username, password) => {
+const login = (username, password, history) => {
   const response = UserService().login(username, password);
-  response.then(value => console.log(value)).catch(error => console.log(error)) 
+  response
+    .then(value => {
+      if (value.data.success === true) {
+        history.push("/user_profile");
+      }
+    })
+    .catch(error => console.log(error));
 };
 
-export const LoginPage = () => {
+const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +22,7 @@ export const LoginPage = () => {
       <form
         onSubmit={event => {
           event.preventDefault();
-          login(username, password);
+          login(username, password, history);
         }}
       >
         <fieldset>
@@ -41,3 +48,5 @@ export const LoginPage = () => {
     </React.Fragment>
   );
 };
+
+export const LoginPage = withRouter(LoginPageComponent);
