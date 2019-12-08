@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "data": {
+    "users": [
+            { "username": "John Doe I"},
+            { "username": "John Doe II"},
+            { "username": "John Doe III"}
+        ]
+    }
+}
