@@ -1,43 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
+import { UserService } from "./user.service";
+import { withRouter } from "react-router-dom";
+import { UserContext } from "./UserContext";
 
+const login = (username, password, history, setUser) => {
+  const response = UserService().login(username, password);
+  response
+    .then(value => {
+      if (value.data.success === true) {
+        setUser({username: value.data.user, role: value.data.role});
+        history.push("/user_profile");
+      }
+    })
+    .catch(error => console.log(error));
+};
 
-const handleOnChange = (field,component) => (event) => {
-    component.setState({[field]: event.target.value})
-}
-    
-export class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        username: "",
-        password: ""
-    };
-    this.handleUsernameChange = handleOnChange("username", this)
-    this.handlePasswordChange = handleOnChange("password", this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+const LoginPageComponent = ({ history }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  handleSubmit(event){
-      console.log(this.state)
-      event.preventDefault()
-  }
-
-  render() {
-    const {username, password} = this.state  
-    return (
-      <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+  return (
+    <UserContext.Consumer>
+      {({setUser}) => (<React.Fragment>
+        <form
+          onSubmit={event => {
+            event.preventDefault();
+            login(username, password, history, setUser);
+          }}
+        >
           <fieldset>
             <p>
-              username: <input type="text" onChange={this.handleUsernameChange} value={username} />{" "}
+              username:
+              <input
+                type="text"
+                onChange={event => setUsername(event.target.value)}
+                value={username}
+              />
             </p>
             <p>
-              password: <input type="text" onChange={this.handlePasswordChange} value={password}/>{" "}
+              password:
+              <input
+                type="text"
+                onChange={event => setPassword(event.target.value)}
+                value={password}
+              />
             </p>
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
-      </React.Fragment>
-    );
-  }
-}
+      </React.Fragment>)
+    }
+    </UserContext.Consumer>
+  );
+};
+
+export const LoginPage = withRouter(LoginPageComponent);
