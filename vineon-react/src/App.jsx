@@ -5,6 +5,8 @@ import { Navbar } from "./Navbar";
 import { UserProfile } from "./UserProfile";
 import { Route, BrowserRouter } from "react-router-dom";
 import { UserContext, initialUserState } from "./UserContext";
+import { RegistrationPage } from "./RegistrationPage";
+import { StartPage } from "./StartPage";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -18,8 +20,10 @@ export const App = () => {
           </div>
 
           <div className="content">
-            <Route exact path="/" component={LoginPage} />
-            <Route path="/user_profile" component={UserProfile} />
+            <Route exact path="/" component={StartPage} />
+            <Route exact path="/login_page" component={LoginPage} />
+            <Route exact path="/user_profile" component={UserProfile} />
+            <Route exact path="/registration_page" component={RegistrationPage} />
           </div>
         </UserContext.Provider>
       </div>

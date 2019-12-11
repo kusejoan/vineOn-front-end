@@ -3,8 +3,20 @@ import { UserService } from "./user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
-const login = (username, password, history, setUser) => {
-  const response = UserService().login(username, password);
+const register = (
+  username,
+  password,
+  confirmPassword,
+  role,
+  history,
+  setUser
+) => {
+  const response = UserService().register(
+    username,
+    password,
+    confirmPassword,
+    role
+  );
   response
     .then(value => {
       if (value.data.success === true) {
@@ -15,9 +27,11 @@ const login = (username, password, history, setUser) => {
     .catch(error => console.log(error));
 };
 
-const LoginPageComponent = ({ history }) => {
+const RegistrationPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState("");
 
   return (
     <UserContext.Consumer>
@@ -26,7 +40,14 @@ const LoginPageComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              login(username, password, history, setUser);
+              register(
+                username,
+                password,
+                confirmPassword,
+                role,
+                history,
+                setUser
+              );
             }}
           >
             <fieldset>
@@ -46,6 +67,22 @@ const LoginPageComponent = ({ history }) => {
                   value={password}
                 />
               </p>
+              <p>
+                confirm password:
+                <input
+                  type="text"
+                  onChange={event => setConfirmPassword(event.target.value)}
+                  value={confirmPassword}
+                />
+              </p>
+              <p>
+                role:
+                <input
+                  type="text"
+                  onChange={event => setRole(event.target.value)}
+                  value={role}
+                />
+              </p>
               <input type="submit" value="Submit" />
             </fieldset>
           </form>
@@ -55,4 +92,4 @@ const LoginPageComponent = ({ history }) => {
   );
 };
 
-export const LoginPage = withRouter(LoginPageComponent);
+export const RegistrationPage = withRouter(RegistrationPageComponent);

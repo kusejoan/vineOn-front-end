@@ -1,0 +1,9 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "data": {
+        "user": "John Doe",
+        "message": "message",
+        "success": true
+    }
+}
