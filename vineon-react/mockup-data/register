@@ -3,7 +3,7 @@
     "msg": "ok",
     "data": {
         "user": "John Doe R",
-        "role": "user",
+        "role": "store",
         "message": "message",
         "success": true
     }

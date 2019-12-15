@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UserService } from "./user.service";
 import { withRouter } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./Contexts/UserContext";
 
 const register = (
   username,
@@ -19,9 +19,12 @@ const register = (
   );
   response
     .then(value => {
-      if (value.data.success === true) {
-        setUser({ username: value.data.user, role: value.data.role });
-        history.push("/user_profile");
+      if (value.data.success === true && value.data.role === "customer"){
+        setUser({ user: value.data.username, role: value.data.role });
+        history.push("/user");
+      }else if (value.data.success === true && value.data.role === "store"){
+        setUser({ user: value.data.username, role: value.data.role });
+        history.push("/user/store/update");
       }
     })
     .catch(error => console.log(error));
