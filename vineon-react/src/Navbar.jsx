@@ -1,3 +1,4 @@
 import React from "react";
+import "./Navbar.css";
 
-export const Navbar = () => <div> VineOn </div>;
+export const Navbar = () => <div className="navbar"> VineOn </div>;

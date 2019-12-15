@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { UserService } from "./user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import "./LoginPage.css";
 
 const login = (username, password, history, setUser) => {
   const response = UserService().login(username, password);
@@ -28,24 +29,22 @@ const LoginPageComponent = ({ history }) => {
             login(username, password, history, setUser);
           }}
         >
-          <fieldset>
+          <fieldset className="login-form">
             <p>
-              username:
-              <input
-                type="text"
+              <input className="login-input"
+                type="text" placeholder="Nazwa użytkownika"
                 onChange={event => setUsername(event.target.value)}
                 value={username}
               />
             </p>
             <p>
-              password:
-              <input
-                type="text"
+              <input className="login-input"
+                type="password" placeholder="Hasło"
                 onChange={event => setPassword(event.target.value)}
                 value={password}
               />
             </p>
-            <input type="submit" value="Submit" />
+            <input className="login-input submit-button"  type="submit" value="Submit" />
           </fieldset>
         </form>
       </React.Fragment>)
