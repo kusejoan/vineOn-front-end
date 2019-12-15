@@ -3,6 +3,8 @@ import { UserService } from "./user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import "./LoginPage.css";
+import {Navbar} from "./Navbar";
+import {ReactComponent as Vineicon} from "./icon.svg";
 
 const login = (username, password, history, setUser) => {
   const response = UserService().login(username, password);
@@ -23,6 +25,10 @@ const LoginPageComponent = ({ history }) => {
   return (
     <UserContext.Consumer>
       {({setUser}) => (<React.Fragment>
+        <div className="header">
+          <Navbar />
+        </div>
+        <div className="icon"> <Vineicon/></div>
         <form
           onSubmit={event => {
             event.preventDefault();
@@ -44,7 +50,8 @@ const LoginPageComponent = ({ history }) => {
                 value={password}
               />
             </p>
-            <input className="login-input submit-button"  type="submit" value="Submit" />
+            <input className="login-input submit-button"  type="submit" value="Zaloguj" />
+            <input className="login-input submit-button"  type="submit" value="Zarejstruj" />
           </fieldset>
         </form>
       </React.Fragment>)

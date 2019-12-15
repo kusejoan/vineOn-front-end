@@ -14,4 +14,12 @@
 }
 .submit-button:hover{
     background: rgb(52,136,153);
+    cursor: pointer;
+}
+
+.icon{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 16px;
 }
