@@ -1,0 +1,30 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "data": {
+        "wines": 
+        [
+            {   
+                "wineName": "wino1",
+                "country": "Polska",
+                "year": "1999",
+                "color": "red",
+                "type": "dry"
+            },
+            {   
+                "wineName": "wino2",
+                "country": "Polska",
+                "year": "1999",
+                "color": "red",
+                "type": "dry"
+            },
+            {   
+                "wineName": "wino3",
+                "country": "Polska",
+                "year": "1999",
+                "color": "red",
+                "type": "dry"
+            }
+        ]
+    }
+}

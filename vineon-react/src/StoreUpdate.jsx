@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { UserService } from "./user.service";
 import { withRouter } from "react-router-dom";
-import { UserContext } from "./Contexts/UserContext";
 import { StoreContext } from "./Contexts/StoreContext";
 
 const update = (address, city, country, website, history, setStore) => {
@@ -23,7 +22,6 @@ const update = (address, city, country, website, history, setStore) => {
 };
 
 const StoreUpdateComponent = ({ history }) => {
-  const [storeName, setStoreName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");

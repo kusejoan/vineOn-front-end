@@ -1,0 +1,12 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "data": {
+        "storeName": "Stocaggio",
+        "address": "Krupnicza",
+        "city":  "Kraków",
+        "country": "Polska",
+        "website": "www.dobrewinko.pl",
+        "success": true
+    }
+}
