@@ -1,8 +1,7 @@
 {
     "code": 200,
     "msg": "ok",
-    "data": {
-        "success": true,
-        "message": "some information"
-    }
+    "success": true,
+    "message": "some information"
+    
 }

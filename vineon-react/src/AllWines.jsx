@@ -10,7 +10,7 @@ const AllWinesList = setAllWines => {
   const response = UserService().allWines();
   response
     .then(value => {
-      setAllWines(value.data.wines);
+      setAllWines(value.wines);
     })
     .catch(error => console.log(error));
 };

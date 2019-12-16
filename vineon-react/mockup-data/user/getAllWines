@@ -1,8 +1,7 @@
 {
     "code": 200,
     "msg": "ok",
-    "data": {
-        "wines": 
+    "wines": 
         [
             {   
                 "wineName": "wino1",
@@ -26,5 +25,5 @@
                 "type": "dry"
             }
         ]
-    }
+    
 }

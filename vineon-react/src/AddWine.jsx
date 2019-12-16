@@ -10,7 +10,7 @@ const addWine = (wineName, country, year, color, type, history, setWine) => {
   const response = UserService().addWine(wineName, country, year, color, type);
   response
     .then(value => {
-      if (value.data.success === true) {
+      if (value.success === true) {
         setWine({ wineName: wineName, country: country, year: year, color: color, type: type}); 
         history.push("/wine");
       }
