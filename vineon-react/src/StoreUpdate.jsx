@@ -9,11 +9,11 @@ const update = (address, city, country, website, history, setStore) => {
     .then(value => {
       if (value.data.success === true) {
         setStore({
-          storeName: value.data.storeName,
-          address: value.data.address,
-          city: value.data.city,
-          country: value.data.country,
-          website: value.data.website
+          storeName: value.storeName,
+          address: value.address,
+          city: value.city,
+          country: value.country,
+          website: value.website
         });
         history.push("/user/store");
       }

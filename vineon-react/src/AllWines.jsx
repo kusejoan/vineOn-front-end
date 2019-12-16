@@ -47,7 +47,7 @@ const AllWinesComponent = ({ history }) => {
   const [color, setColor] = useState("");
   const [type, setType] = useState("");
 
-  if (allWines.length == 0) AllWinesList(setAllWines);
+  if (allWines.length === 0) AllWinesList(setAllWines);
   return (
     <React.Fragment>
       <div>Lista wszystkich zarejestrowanych win:</div>

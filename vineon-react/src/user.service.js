@@ -25,7 +25,7 @@ export const UserService = () => ({
     console.log(userRegisterUrl);
     const response = await Axios.post(userRegisterUrl, {
       headers: { Accept: APP_JSON },
-      params: { username, password, confirmPassword, role }
+      params: { username, password, role, passwordConfirm: confirmPassword }
     });
 
     return response.data;

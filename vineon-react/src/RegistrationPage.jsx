@@ -19,11 +19,11 @@ const register = (
   );
   response
     .then(value => {
-      if (value.data.success === true && value.data.role === "customer") {
-        setUser({ user: value.data.username, role: value.data.role });
+      if (value.success === true && value.role === "customer") {
+        setUser({ username: value.username, role: value.role });
         history.push("/user");
-      } else if (value.data.success === true && value.data.role === "store") {
-        setUser({ user: value.data.username, role: value.data.role });
+      } else if (value.success === true && value.role === "store") {
+        setUser({ username: value.username, role: value.role });
         history.push("/user/store/update");
       }
     })

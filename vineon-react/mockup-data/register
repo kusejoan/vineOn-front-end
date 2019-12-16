@@ -1,11 +1,9 @@
 {
     "code": 200,
     "msg": "ok",
-    "data": {
-        "user": "John Doe R",
-        "role": "store",
-        "message": "message",
-        "success": true
-    }
+    "user": "John Doe R",
+    "role": "store",
+    "message": "message",
+    "success": true
 }
 

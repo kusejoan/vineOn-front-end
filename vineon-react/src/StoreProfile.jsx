@@ -4,11 +4,11 @@ import { StoreContext } from "./Contexts/StoreContext";
 export const StoreProfile = () => (
   <React.Fragment>
     <StoreContext.Consumer>
-      {({ store }) => (
+      {({ store, setStore }) => (
         <div>
           {" "}
-          You re logged in as a store {store.storeName}, info: {store.city},{" "}
-          {store.country}, {store.website}
+          You re logged in as a store {store.storeName},<br /> info: <br />{" "}
+          city: {store.city}, country: {store.country}, website: {store.website}
         </div>
       )}
     </StoreContext.Consumer>

@@ -1,10 +1,9 @@
 {
     "code": 200,
     "msg": "ok",
-    "data": {
-        "user": "John Doe",
-        "role": "customer",
-        "message": "message",
-        "success": true
-    }
+    "username": "John Doe",
+    "role": "customer",
+    "message": "message",
+    "success": true
+
 }
