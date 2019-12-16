@@ -5,7 +5,9 @@ import "./UserProfile.css";
 export const UserProfile = () => (
     <UserContext.Consumer>
         {({user}) => <div>
-            <div> {user.username}</div>
+            <div className = "hello">
+            <div> <span>Witaj użytkowniku </span>{user.username} <span>!</span></div>
+            </div>
             <div className="label-container">
                 <div className="label">
                     <span>Moje wina</span>

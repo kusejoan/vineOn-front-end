@@ -13,6 +13,7 @@ export const App = () => {
   return (
       <div className="app">
         <div className="up-header"></div>
+        <div className="bottom-header"></div>
       <BrowserRouter>
         <div className="container">
           <UserContext.Provider value={{ user, setUser }}>
@@ -24,7 +25,7 @@ export const App = () => {
           </UserContext.Provider>
         </div>
       </BrowserRouter>
-        <div className="bottom-header"></div>
+
     </div>
 
   );

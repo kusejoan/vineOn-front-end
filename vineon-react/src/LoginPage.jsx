@@ -46,12 +46,12 @@ const LoginPageComponent = ({ history }) => {
             <p>
               <input className="login-input"
                 type="password" placeholder="Hasło"
-                onChange={event => setPassword(event.target.value)}
-                value={password}
+                value={password} onChange={event => setPassword(event.target.value)}
               />
             </p>
             <input className="login-input submit-button"  type="submit" value="Zaloguj" />
             <input className="login-input submit-button"  type="submit" value="Zarejstruj" />
+
           </fieldset>
         </form>
       </React.Fragment>)
