@@ -1,5 +1,5 @@
 import React from "react";
-import { StoreContext } from "./Contexts/StoreContext";
+import { StoreContext } from "./StoreContext";
 
 export const StoreProfile = () => (
   <React.Fragment>

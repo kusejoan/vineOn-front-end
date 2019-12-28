@@ -1,5 +1,5 @@
 import React from "react";
-import { UserContext } from "./Contexts/UserContext";
+import { UserContext } from "./UserContext";
 
 export const UserProfile = () => (
   <React.Fragment>
@@ -11,5 +11,12 @@ export const UserProfile = () => (
         Add Wine
       </button>
     </form>
+    <br/>
+    <br/>
+    <p>
+    Polecane dla cb: 
+    <br/>
+    tutaj będzie lista win polecanych użytkownikowi
+    </p>
   </React.Fragment>
 );

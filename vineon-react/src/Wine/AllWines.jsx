@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { UserService } from "./user.service";
+import { UserService } from "../User/user.service";
+import { WineService } from "./wine.service";
 import { withRouter, Link } from "react-router-dom";
-// import { Link } from "react-router";
-import { WineContext } from "./Contexts/WineContext";
-import { UserContext } from "./Contexts/UserContext";
-import { StoreContext } from "./Contexts/StoreContext";
+import { WineContext } from "./WineContext";
+import { UserContext } from "../User/UserContext";
+import { StoreContext } from "../Store/StoreContext";
 
 const AllWinesList = setAllWines => {
-  const response = UserService().allWines();
+  const response = WineService().allWines();
   response
     .then(value => {
       setAllWines(value.wines);

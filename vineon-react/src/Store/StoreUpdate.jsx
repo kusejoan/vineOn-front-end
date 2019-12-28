@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { UserService } from "./user.service";
+import { UserService } from "../User/user.service";
 import { withRouter } from "react-router-dom";
-import { StoreContext } from "./Contexts/StoreContext";
+import { StoreContext } from "./StoreContext";
 
 const update = (address, city, country, website, history, setStore) => {
   const response = UserService().update(address, city, country, website);
