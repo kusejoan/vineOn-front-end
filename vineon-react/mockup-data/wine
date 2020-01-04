@@ -1,0 +1,9 @@
+{   
+    "code": 200,
+    "msg": "ok",
+    "wineName": "wino1",
+    "country": "Polska",
+    "year": "1999",
+    "color": "red",
+    "type": "dry"
+}

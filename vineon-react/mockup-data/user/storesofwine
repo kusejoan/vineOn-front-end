@@ -1,0 +1,40 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "stores": 
+        [
+            {
+            "storeName": "Sklep1",
+            "address": "adres1",
+            "city":  "Kraków",
+            "country": "Polska",
+            "website": "www.wino.pl",
+            "success": true
+            },
+            {
+            "storeName": "Sklep2",
+            "address": "adres1",
+            "city":  "Kraków",
+            "country": "Polska",
+            "website": "www.wino.pl",
+            "success": true
+            },
+            {
+            "storeName": "Sklep3",
+            "address": "adres1",
+            "city":  "Kraków",
+            "country": "Polska",
+            "website": "www.wino.pl",
+            "success": true
+            },
+            {
+            "storeName": "Sklep4",
+            "address": "adres1",
+            "city":  "Kraków",
+            "country": "Polska",
+            "website": "www.wino.pl",
+            "success": true
+            }
+        ]
+    
+}

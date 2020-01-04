@@ -11,24 +11,11 @@ export const WineProfile = () => (
           {wine.color}, Type:{wine.type}
         </div>
       )}
-
-      <form>
+    </WineContext.Consumer>
+    <form>
       <button type="submit" formAction="/user/storesofwine">
         Wyświetl sklepy mające w ofercie to wino
       </button>
     </form>
-
-      
-    </WineContext.Consumer>
-    
-    {/* <form>
-      <p>Write comment:</p>
-      <input
-        type="text"
-        onChange={event => setUsername(event.target.value)}
-        value={username}
-      />
-      <input type="submit" value="Add Comment" />
-    </form> */}
   </React.Fragment>
 );

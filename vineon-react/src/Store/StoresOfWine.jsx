@@ -24,7 +24,7 @@ const displayStores = (
     <StoreInfoContext.Consumer>
       {({ storeInfo: store, setStoreInfo: setStore }) => (
         <Link
-          to="/StoreInfo"
+          to="/storeInfo"
           onClick={() => {
             setStore(pstore);
           }}
@@ -56,4 +56,4 @@ const StoresOfWineComponent = ({ history }) => {
   );
 };
 
-export const storesOfWine = withRouter(StoresOfWineComponent);
+export const StoresOfWine = withRouter(StoresOfWineComponent);

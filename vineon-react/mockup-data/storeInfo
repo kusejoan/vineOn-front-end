@@ -1,0 +1,10 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "storeName": "Sklep",
+    "address": "adres1",
+    "city":  "Kraków",
+    "country": "Polska",
+    "website": "www.wino.pl",
+    "success": true
+}

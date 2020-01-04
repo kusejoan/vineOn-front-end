@@ -1,14 +1,14 @@
 import React from "react";
 import { StoreInfoContext } from "./StoreInfoContext";
 
-export const StoreProfile = () => (
+export const StoreInfo = () => (
   <React.Fragment>
     <StoreInfoContext.Consumer>
-      {({ store, setStore }) => (
+      {({ storeInfo, setStoreInfo }) => (
         <div>
           {" "}
-          Welcome to store {store.storeName},<br /> info: <br />{" "}
-          city: {store.city}, country: {store.country}, website: {store.website}
+          Welcome to store {storeInfo.storeName},<br /> info: <br />{" "}
+          city: {storeInfo.city}, country: {storeInfo.country}, website: {storeInfo.website}
         </div>
       )}
     </StoreInfoContext.Consumer>

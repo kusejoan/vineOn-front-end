@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { API_URL, APP_JSON } from "../App/api";
+import { API_URL, APP_JSON } from "../api";
 
 // POST JSON
 
