@@ -24,6 +24,8 @@ import { WineContext, initialWineState } from "./Wine/WineContext";
 import { RegistrationPage } from "./RegistrationPage";
 import { StartPage } from "./StartPage";
 import { CookiesProvider, useCookies } from "react-cookie";
+import {ReactComponent as Vineicon} from "./icon.svg"
+import {SignUp} from "./SignUp";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -34,8 +36,11 @@ export const App = () => {
 
   return (
     <CookiesProvider>
-      <BrowserRouter>
-        <div>
+      <div className="app">
+        <div className="up-header"></div>
+        <div className="bottom-header"></div>
+        <BrowserRouter>
+          <div className="container">
           <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>
             <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
               <UserContext.Provider value={{ user, setUser }}>
@@ -53,6 +58,7 @@ export const App = () => {
                       <Route exact path="/wine" component={WineProfile} />
                       <Route exact path="/user" component={UserProfile} />
                       <Route exact path="/user/logout" component={LogoutPage} />
+                      <Route path="/sign-up" component={SignUp} />
                       <Route
                         exact
                         path="/user/store"
@@ -87,6 +93,7 @@ export const App = () => {
           </StoreInfoContext.Provider>
         </div>
       </BrowserRouter>
+      </div>
     </CookiesProvider>
   );
 };

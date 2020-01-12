@@ -1,6 +1,7 @@
 import React from "react";
-import { UserContext } from "./UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import "./UserProfile.css";
+
 
 export const UserProfile = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["session"]);
@@ -8,12 +9,15 @@ export const UserProfile = () => {
   return (
     <React.Fragment>
       <div> You re logged in {cookies.session}</div>
-
-      <form>
+        <div className="label-container">
+            <div className="label">
+            <form>
         <button type="submit" formAction="/user/addwine">
           Add Wine
         </button>
       </form>
+            </div>
+        </div>
       <br />
       <br />
       <p>

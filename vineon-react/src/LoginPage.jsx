@@ -3,6 +3,9 @@ import { UserService } from "./User/user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
 import { useCookies, withCookies } from "react-cookie";
+import "./LoginPage.css";
+import {Navbar} from "./Navbar";
+import {ReactComponent as Vineicon} from "./icon.svg";
 
 
 const login = (username, password, history, setUser, setCookie) => {
@@ -33,30 +36,31 @@ const LoginPageComponent = ({ history }) => {
     <UserContext.Consumer>
       {({ setUser }) => (
         <React.Fragment>
+          <div className="header">
+            <Navbar />
+          </div>
+          <div className="icon"> <Vineicon/></div>
           <form
             onSubmit={event => {
               event.preventDefault();
               login(username, password, history, setUser, setCookie);
             }}
           >
-            <fieldset>
-              <p>
-                username:
-                <input
-                  type="text"
-                  onChange={event => setUsername(event.target.value)}
+            <fieldset className="login-form">
+              <input className="login-input"
+                     type="text" placeholder="Nazwa użytkownika"
+
+                     onChange={event => setUsername(event.target.value)}
                   value={username}
                 />
-              </p>
               <p>
-                password:
-                <input
-                  type="text"
-                  onChange={event => setPassword(event.target.value)}
-                  value={password}
+                <input className="login-input"
+                       type="password" placeholder="Hasło"
+                       value={password} onChange={event => setPassword(event.target.value)}
                 />
               </p>
-              <input type="submit" value="Submit" />
+              <input className="login-input submit-button"  type="submit" value="Zaloguj" />
+              <input className="login-input submit-button"  type="submit" value="Zarejstruj" />
             </fieldset>
           </form>
         </React.Fragment>

@@ -2,6 +2,7 @@ import React from "react";
 import { UserContext } from "./User/UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { withRouter, Link } from "react-router-dom";
+import "./Navbar.css";
 
 
 export const Navbar = () => {
@@ -15,7 +16,7 @@ export const Navbar = () => {
   if (cookies.role === "customer" && cookies.session !== null) {
     return (
       <React.Fragment>
-        <div>
+        <div className="navbar">
           VineOn
           <form>
             <button type="submit" formAction="/user/getAllWines">
