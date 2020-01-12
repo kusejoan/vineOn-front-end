@@ -20,7 +20,7 @@ export const Navbar = () => {
         <div className="navbar">
           VineOn
           <form>
-            <NavbarItem path="/user/getAllWines" title="All winess"></NavbarItem>
+            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
             <NavbarItem path="/user" title="Profile"></NavbarItem>
             <NavbarItem path="/user/logout" callback={()=>logout} title="Logout" ></NavbarItem>
           </form>
@@ -35,15 +35,9 @@ export const Navbar = () => {
         <div>
           VineOn
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/user/store">
-              Profile
-            </button>
-            <button onClick={logout} formAction="/user/logout">
-              Logout
-            </button>
+              <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+              <NavbarItem path="/user/store" title="Profile"></NavbarItem>
+              <NavbarItem path="/user/logout" callback={(()=>logout)} title="Logout"></NavbarItem>
           </form>
         </div>
         <br />
@@ -57,12 +51,8 @@ export const Navbar = () => {
           VineOn
           <div>
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/login">
-              Login
-            </button>
+              <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+              <NavbarItem path="/login" title="Login"></NavbarItem>
           </form>
         </div>
         </div>
