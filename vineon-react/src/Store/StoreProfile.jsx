@@ -3,7 +3,7 @@ import { StoreContext } from "./StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
 export const StoreProfile = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(["store"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["storeName"]);
   return (
     <React.Fragment>
       <div>
@@ -16,6 +16,12 @@ export const StoreProfile = () => {
       <form>
         <button type="submit" formAction="/user/store/addwine">
           Add Wine to your offer
+        </button>
+        <button type="submit" formAction="/user/store/removewine">
+          Remove wine 
+        </button>
+        <button type="submit" formAction="/user/winesofstore">
+          Your wines
         </button>
       </form>
     </React.Fragment>

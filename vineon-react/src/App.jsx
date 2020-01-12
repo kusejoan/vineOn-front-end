@@ -27,6 +27,7 @@ import { RegistrationPage } from "./RegistrationPage";
 import { StartPage } from "./StartPage";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { AddSuccess } from "./Wine/AddSuccess";
+import { WinesOfStore } from "./Wine/WinesOfStore";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -74,6 +75,11 @@ export const App = () => {
                         exact
                         path="/user/storesofwine"
                         component={StoresOfWine}
+                      />
+                      <Route
+                        exact
+                        path="/user/winesofstore"
+                        component={WinesOfStore}
                       />
                       <Route
                         exact

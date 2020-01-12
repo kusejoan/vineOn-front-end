@@ -1,0 +1,27 @@
+{
+    "wines": 
+    [
+        {
+        "wineName": "wino1sklepu",
+        "country": "Polska",
+        "year": "1999",
+        "color": "red",
+        "type": "dry"
+        },
+        {
+        "wineName": "wino2sklepu",
+        "country": "Polska",
+        "year": "1999",
+        "color": "red",
+        "type": "dry"
+        },
+        {
+        "wineName": "wino3sklepu",
+        "country": "Polska",
+        "year": "1999",
+        "color": "red",
+        "type": "dry"
+        }
+    ],
+    "success": true
+}

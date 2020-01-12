@@ -9,6 +9,7 @@ const storeUpdateUrl = `${API_URL}/user/store/update`;
 const addWineUrl = `${API_URL}/user/addwine`;
 const addWineStoreUrl = `${API_URL}/user/store/addwine`;
 const allWinesUrl = `${API_URL}/user/getAllWines`;
+const winesOfStoreUrl = `${API_URL}/user/winesofstore`;
 
 
 export const WineService = () => ({
@@ -37,6 +38,16 @@ export const WineService = () => ({
     const response = await Axios.post(allWinesUrl, {
       headers: { Accept: APP_JSON },
       params: { }
+    });
+
+    return response.data;
+  },
+
+  async winesOfStore(storeName) {
+    console.log(winesOfStoreUrl);
+    const response = await Axios.post(winesOfStoreUrl, {
+      headers: { Accept: APP_JSON },
+      params: { storeName }
     });
 
     return response.data;
