@@ -28,6 +28,8 @@ import { StartPage } from "./StartPage";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { AddSuccess } from "./Wine/AddSuccess";
 import { WinesOfStore } from "./Wine/WinesOfStore";
+import { RemoveWineStore } from "./Wine/RemoveWineStore";
+import { RemoveSuccess } from "./Wine/RemoveSuccess";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -52,6 +54,7 @@ export const App = () => {
                     <div className="content">
                       <Route exact path="/" component={StartPage} />
                       <Route exact path="/added" component={AddSuccess} />
+                      <Route exact path="/removed" component={RemoveSuccess} />
                       <Route exact path="/login" component={LoginPage} />
                       <Route exact path="/storeInfo" component={StoreInfo} />
                       <Route exact path="/userInfo" component={UserInfo} />
@@ -65,7 +68,7 @@ export const App = () => {
                       />
                       <Route exact path="/user/addwine" component={AddWine} />
                       <Route exact path="/user/store/addwine" component={AddWineStore} />
-
+                      <Route exact path="/user/store/removewine" component={RemoveWineStore} />
                       <Route
                         exact
                         path="/user/getAllWines"

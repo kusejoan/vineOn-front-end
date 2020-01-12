@@ -8,6 +8,7 @@ const userRegisterUrl = `${API_URL}/register`;
 const storeUpdateUrl = `${API_URL}/user/store/update`;
 const addWineUrl = `${API_URL}/user/addwine`;
 const addWineStoreUrl = `${API_URL}/user/store/addwine`;
+const removeWineStoreUrl = `${API_URL}/user/store/removewine`;
 const allWinesUrl = `${API_URL}/user/getAllWines`;
 const winesOfStoreUrl = `${API_URL}/user/winesofstore`;
 
@@ -23,9 +24,19 @@ export const WineService = () => ({
     return response.data;
   },
 
-  async addWineStore(wineName) {
+  async removeWineStore(wineName) {
     console.log(addWineStoreUrl);
     const response = await Axios.post(addWineStoreUrl, {
+      headers: { Accept: APP_JSON },
+      params: { wineName }
+    });
+
+    return response.data;
+  },
+
+  async removeWineStore(wineName) {
+    console.log(removeWineStoreUrl);
+    const response = await Axios.post(removeWineStoreUrl, {
       headers: { Accept: APP_JSON },
       params: { wineName }
     });
