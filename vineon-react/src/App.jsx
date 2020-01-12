@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { LoginPage } from "./LoginPage";
-import { Navbar } from "./Navbar";
+import { Navbar } from "./Navbar/Navbar";
 import { UserProfile } from "./User/UserProfile";
 import { StoreProfile } from "./Store/StoreProfile";
 import { StoreInfo } from "./Store/StoreInfo";

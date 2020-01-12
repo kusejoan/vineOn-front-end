@@ -1,8 +1,9 @@
 import React from "react";
-import { UserContext } from "./User/UserContext";
+import { UserContext } from "../User/UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { withRouter, Link } from "react-router-dom";
 import "./Navbar.css";
+import{NavbarItem} from "./NavbarItem";
 
 export const Navbar = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["session", "role", "storeName", "address", "city", "country", "website"]);
@@ -27,22 +28,9 @@ export const Navbar = () => {
         <div className="navbar">
           VineOn
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/user">
-              Profile
-            </button>
-            <button>
-              <Link
-                to="/user/logout"
-                onClick={() => {
-                  logoutUser();
-                }}
-              >
-                Logout
-              </Link>
-            </button>
+            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+            <NavbarItem path="/user" title="Profile"></NavbarItem>
+            <NavbarItem path="/user/logout" callback={()=>logoutUser} title="Logout" ></NavbarItem>
           </form>
         </div>
         <br />
@@ -55,22 +43,9 @@ export const Navbar = () => {
         <div>
           VineOn
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/user/store">
-              Profile
-            </button>
-            <button>
-              <Link
-                to="/user/logout"
-                onClick={() => {
-                  logoutStore();
-                }}
-              >
-                Logout
-              </Link>
-            </button>
+            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+            <NavbarItem path="/user/store" title="Profile"></NavbarItem>
+            <NavbarItem path="/user/logout" callback={()=>logoutStore} title="Logout"></NavbarItem>
           </form>
         </div>
         <br />
@@ -80,15 +55,11 @@ export const Navbar = () => {
   } else {
     return (
       <React.Fragment>
-        <div>
+        <div className="navbar">
           VineOn
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/login">
-              Login
-            </button>
+            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+            <NavbarItem path="/login" title="Login"></NavbarItem>
           </form>
         </div>
         <br />
