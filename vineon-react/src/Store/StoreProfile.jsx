@@ -14,7 +14,7 @@ export const StoreProfile = () => {
       </div>
 
       <form>
-        <button type="submit" formAction="/user/addwine">
+        <button type="submit" formAction="/user/store/addwine">
           Add Wine to your offer
         </button>
       </form>

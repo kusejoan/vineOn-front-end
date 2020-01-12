@@ -9,6 +9,7 @@ import { UserInfo } from "./User/UserInfo";
 import { WineProfile } from "./Wine/WineProfile";
 import { LogoutPage } from "./LogoutPage";
 import { AddWine } from "./Wine/AddWine";
+import { AddWineStore } from "./Wine/AddWineStore";
 import { AllWines } from "./Wine/AllWines";
 import { StoreUpdate } from "./Store/StoreUpdate";
 import { UserUpdate } from "./User/UserUpdate";
@@ -25,6 +26,7 @@ import { WineContext, initialWineState } from "./Wine/WineContext";
 import { RegistrationPage } from "./RegistrationPage";
 import { StartPage } from "./StartPage";
 import { CookiesProvider, useCookies } from "react-cookie";
+import { AddSuccess } from "./Wine/AddSuccess";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -48,6 +50,7 @@ export const App = () => {
 
                     <div className="content">
                       <Route exact path="/" component={StartPage} />
+                      <Route exact path="/added" component={AddSuccess} />
                       <Route exact path="/login" component={LoginPage} />
                       <Route exact path="/storeInfo" component={StoreInfo} />
                       <Route exact path="/userInfo" component={UserInfo} />
@@ -60,6 +63,8 @@ export const App = () => {
                         component={StoreProfile}
                       />
                       <Route exact path="/user/addwine" component={AddWine} />
+                      <Route exact path="/user/store/addwine" component={AddWineStore} />
+
                       <Route
                         exact
                         path="/user/getAllWines"
