@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { UserService } from "./User/user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
+import { useCookies, withCookies } from "react-cookie";
 
-const login = (username, password, history, setUser) => {
+
+const login = (username, password, history, setUser, setCookie) => {
   const response = UserService().login(username, password);
   response
     .then(value => {
       if (value.success === true && value.role === "customer") {
         setUser({ username: value.username, role: value.role });
+        setCookie('session', value.username, { path: '/' });
+        setCookie('role', value.role, { path: '/' });
         history.push("/user");
-      }else if(value.success === true && value.role === "store"){
+      } else if (value.success === true && value.role === "store") {
         setUser({ username: value.username, role: value.role });
+        setCookie('session', value.username, { path: '/' });
+        setCookie('role', value.role, { path: '/' });
         history.push("/user/store");
       }
     })
@@ -21,6 +27,7 @@ const login = (username, password, history, setUser) => {
 const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["session"]);
 
   return (
     <UserContext.Consumer>
@@ -29,7 +36,7 @@ const LoginPageComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              login(username, password, history, setUser);
+              login(username, password, history, setUser, setCookie);
             }}
           >
             <fieldset>

@@ -51,4 +51,14 @@ export const UserService = () => ({
 
     return response.data;
   }
+
+  // async setCookies(username, password){
+  //   console.log(loginUrl);
+  //   const response = await Axios.post(loginUrl, {
+  //     headers: { Accept: APP_JSON },
+  //     params: { username, password }
+  //   });
+
+  //   return response.data;
+  // }
 });

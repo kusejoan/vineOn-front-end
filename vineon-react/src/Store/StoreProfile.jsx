@@ -14,7 +14,7 @@ export const StoreProfile = () => (
     </StoreContext.Consumer>
     <form>
       <button type="submit" formAction="/user/addwine">
-        Add Wine
+        Add Wine to your offer
       </button>
     </form>
   </React.Fragment>
