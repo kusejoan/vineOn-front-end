@@ -30,6 +30,8 @@ import { AddSuccess } from "./Wine/AddSuccess";
 import { WinesOfStore } from "./Wine/WinesOfStore";
 import { RemoveWineStore } from "./Wine/RemoveWineStore";
 import { RemoveSuccess } from "./Wine/RemoveSuccess";
+import {ReactComponent as Vineicon} from "./icon.svg"
+import {SignUp} from "./SignUp";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -40,8 +42,11 @@ export const App = () => {
 
   return (
     <CookiesProvider>
-      <BrowserRouter>
-        <div>
+      <div className="app">
+        <div className="up-header"></div>
+        <div className="bottom-header"></div>
+        <BrowserRouter>
+          <div className="container">
           <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>
             <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
               <UserContext.Provider value={{ user, setUser }}>
@@ -61,6 +66,7 @@ export const App = () => {
                       <Route exact path="/wine" component={WineProfile} />
                       <Route exact path="/user" component={UserProfile} />
                       <Route exact path="/user/logout" component={LogoutPage} />
+                      <Route path="/sign-up" component={SignUp} />
                       <Route
                         exact
                         path="/user/store"
@@ -107,6 +113,7 @@ export const App = () => {
           </StoreInfoContext.Provider>
         </div>
       </BrowserRouter>
+      </div>
     </CookiesProvider>
   );
 };
