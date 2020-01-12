@@ -1,8 +1,9 @@
 import React from "react";
-import { UserContext } from "./User/UserContext";
+import { UserContext } from "../User/UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { withRouter, Link } from "react-router-dom";
 import "./Navbar.css";
+import{NavbarItem} from "./NavbarItem";
 
 
 export const Navbar = () => {
@@ -19,22 +20,9 @@ export const Navbar = () => {
         <div className="navbar">
           VineOn
           <form>
-            <button type="submit" formAction="/user/getAllWines">
-              All wines
-            </button>
-            <button type="submit" formAction="/user">
-              Profile
-            </button>
-            <button>
-            <Link
-              to="/user/logout"
-              onClick={() => {
-                logout();
-              }}
-            >
-              Logout
-            </Link>
-            </button>
+            <NavbarItem path="/user/getAllWines" title="All winess"></NavbarItem>
+            <NavbarItem path="/user" title="Profile"></NavbarItem>
+            <NavbarItem path="/user/logout" callback={()=>logout} title="Logout" ></NavbarItem>
           </form>
         </div>
         <br />
@@ -65,8 +53,9 @@ export const Navbar = () => {
   } else {
     return (
       <React.Fragment>
-        <div>
+        <div className="navbar">
           VineOn
+          <div>
           <form>
             <button type="submit" formAction="/user/getAllWines">
               All wines
@@ -75,6 +64,7 @@ export const Navbar = () => {
               Login
             </button>
           </form>
+        </div>
         </div>
         <br />
         <br />

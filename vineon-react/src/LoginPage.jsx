@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
 import { useCookies, withCookies } from "react-cookie";
 import "./LoginPage.css";
-import {Navbar} from "./Navbar";
+import {Navbar} from "./Navbar/Navbar";
 import {ReactComponent as Vineicon} from "./icon.svg";
 
 
@@ -26,7 +26,9 @@ const login = (username, password, history, setUser, setCookie) => {
     })
     .catch(error => console.log(error));
 };
-
+const register = (history) => {
+  history.push("/register");
+}
 const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -36,9 +38,6 @@ const LoginPageComponent = ({ history }) => {
     <UserContext.Consumer>
       {({ setUser }) => (
         <React.Fragment>
-          <div className="header">
-            <Navbar />
-          </div>
           <div className="icon"> <Vineicon/></div>
           <form
             onSubmit={event => {
@@ -60,7 +59,7 @@ const LoginPageComponent = ({ history }) => {
                 />
               </p>
               <input className="login-input submit-button"  type="submit" value="Zaloguj" />
-              <input className="login-input submit-button"  type="submit" value="Zarejstruj" />
+              <input className="login-input submit-button"  type="button" value="Zarejstruj" onClick={() => register(history)}/>
             </fieldset>
           </form>
         </React.Fragment>
