@@ -27,7 +27,7 @@ const login = (username, password, history, setUser, setCookie) => {
 const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["session"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["session", "role"]);
 
   return (
     <UserContext.Consumer>

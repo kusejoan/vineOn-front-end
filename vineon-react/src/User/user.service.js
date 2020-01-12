@@ -6,6 +6,7 @@ import { API_URL, APP_JSON } from "../api";
 const loginUrl = `${API_URL}/login`;
 const userRegisterUrl = `${API_URL}/register`;
 const storeUpdateUrl = `${API_URL}/user/store/update`;
+const userUpdateUrl = `${API_URL}/user/customer/update`;
 const storesOfWineUrl = `${API_URL}/user/storesofwine`;
 const addWineUrl = `${API_URL}/user/addwine`;
 const allWinesUrl = `${API_URL}/user/getAllWines`;
@@ -37,6 +38,16 @@ export const UserService = () => ({
     const response = await Axios.post(storeUpdateUrl, {
       headers: { Accept: APP_JSON },
       params: { address, city, country, website }
+    });
+
+    return response.data;
+  },
+
+  async updateUser(firstName, surname, birthdate) {
+    console.log(userUpdateUrl);
+    const response = await Axios.post(userUpdateUrl, {
+      headers: { Accept: APP_JSON },
+      params: { firstName, surname, birthdate }
     });
 
     return response.data;

@@ -1,21 +1,23 @@
 import React from "react";
 import { StoreContext } from "./StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-export const StoreProfile = () => (
-  <React.Fragment>
-    <StoreContext.Consumer>
-      {({ store, setStore }) => (
-        <div>
-          {" "}
-          You re logged in as a store {store.storeName},<br /> info: <br />{" "}
-          city: {store.city}, country: {store.country}, website: {store.website}
-        </div>
-      )}
-    </StoreContext.Consumer>
-    <form>
-      <button type="submit" formAction="/user/addwine">
-        Add Wine to your offer
-      </button>
-    </form>
-  </React.Fragment>
-);
+export const StoreProfile = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(["store"]);
+  return (
+    <React.Fragment>
+      <div>
+        {" "}
+        You re logged in as a store {cookies.storeName},<br /> info:{" "}
+        <br /> city: {cookies.city}, country: {cookies.country},
+        website: {cookies.website}
+      </div>
+
+      <form>
+        <button type="submit" formAction="/user/addwine">
+          Add Wine to your offer
+        </button>
+      </form>
+    </React.Fragment>
+  );
+};

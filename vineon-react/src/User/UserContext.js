@@ -2,7 +2,10 @@ import React from "react";
 
 export const initialUserState = {
   username: null,
-  role: null
+  role: null,
+  firstName: null,
+  surname: null,
+  burthdate: null
 };
 
 const initialSetUser = () => {};

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { UserService } from "./User/user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
+import { useCookies, withCookies } from "react-cookie";
+
 
 const register = (
   username,
@@ -9,7 +11,8 @@ const register = (
   confirmPassword,
   role,
   history,
-  setUser
+  setUser,
+  setCookie
 ) => {
   const response = UserService().register(
     username,
@@ -21,9 +24,13 @@ const register = (
     .then(value => {
       if (value.success === true && value.role === "customer") {
         setUser({ username: value.username, role: value.role });
-        history.push("/user");
+        setCookie('session', value.username, { path: '/' });
+        setCookie('role', value.role, { path: '/' });
+        history.push("/user/customer/update");
       } else if (value.success === true && value.role === "store") {
         setUser({ username: value.username, role: value.role });
+        setCookie('session', value.username, { path: '/' });
+        setCookie('role', value.role, { path: '/' });
         history.push("/user/store/update");
       }
     })
@@ -35,6 +42,8 @@ const RegistrationPageComponent = ({ history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["session", "role"]);
+
 
   return (
     <UserContext.Consumer>
@@ -49,7 +58,7 @@ const RegistrationPageComponent = ({ history }) => {
                 confirmPassword,
                 role,
                 history,
-                setUser
+                setUser, setCookie
               );
             }}
           >

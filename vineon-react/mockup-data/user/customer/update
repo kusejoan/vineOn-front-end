@@ -1,0 +1,10 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "username": "John updated",
+    "firstName": "Jan",
+    "surname": "Kowalski",
+    "birthdate": "03-05-1998",
+    "success": true
+
+}

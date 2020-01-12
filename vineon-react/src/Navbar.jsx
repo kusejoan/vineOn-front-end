@@ -3,13 +3,21 @@ import { UserContext } from "./User/UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { withRouter, Link } from "react-router-dom";
 
-
 export const Navbar = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(["session", "role"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["session", "role", "storeName", "address", "city", "country", "website"]);
 
-  const logout = () => {
+  const logoutUser = () => {
     removeCookie("role");
     removeCookie("session");
+  };
+  const logoutStore = () => {
+    removeCookie("role");
+    removeCookie("session");
+    removeCookie("storeName");
+    removeCookie("address");
+    removeCookie("city");
+    removeCookie("country");
+    removeCookie("website");
   };
 
   if (cookies.role === "customer" && cookies.session !== null) {
@@ -25,14 +33,14 @@ export const Navbar = () => {
               Profile
             </button>
             <button>
-            <Link
-              to="/user/logout"
-              onClick={() => {
-                logout();
-              }}
-            >
-              Logout
-            </Link>
+              <Link
+                to="/user/logout"
+                onClick={() => {
+                  logoutUser();
+                }}
+              >
+                Logout
+              </Link>
             </button>
           </form>
         </div>
@@ -40,7 +48,7 @@ export const Navbar = () => {
         <br />
       </React.Fragment>
     );
-  } else if (cookies.role === "store" && cookies.session !== null) {
+  } else if (cookies.role === "store") {
     return (
       <React.Fragment>
         <div>
@@ -52,8 +60,15 @@ export const Navbar = () => {
             <button type="submit" formAction="/user/store">
               Profile
             </button>
-            <button onClick={logout} formAction="/user/logout">
-              Logout
+            <button>
+              <Link
+                to="/user/logout"
+                onClick={() => {
+                  logoutStore();
+                }}
+              >
+                Logout
+              </Link>
             </button>
           </form>
         </div>

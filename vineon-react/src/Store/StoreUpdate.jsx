@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { UserService } from "../User/user.service";
 import { withRouter } from "react-router-dom";
 import { StoreContext } from "./StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-const update = (address, city, country, website, history, setStore) => {
+
+const update = (address, city, country, website, history, setStore, setCookie) => {
   const response = UserService().update(address, city, country, website);
   response
     .then(value => {
@@ -15,6 +17,11 @@ const update = (address, city, country, website, history, setStore) => {
           country: value.country,
           website: value.website
         });
+        setCookie('storeName',value.storeName, { path: '/' });
+        setCookie('address', value.address, { path: '/' });
+        setCookie('city', value.city, { path: '/' });
+        setCookie('country', value.country, { path: '/' });
+        setCookie('website', value.website, { path: '/' });
         history.push("/user/store");
       }
     })
@@ -26,6 +33,8 @@ const StoreUpdateComponent = ({ history }) => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [website, setWebsite] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["storeName", "address", "city", "country", "website"]);
+
 
   return (
     <StoreContext.Consumer>
@@ -34,7 +43,7 @@ const StoreUpdateComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              update(address, city, country, website, history, setStore);
+              update(address, city, country, website, history, setStore, setCookie);
             }}
           >
             <fieldset>

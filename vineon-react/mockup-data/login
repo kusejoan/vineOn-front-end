@@ -2,7 +2,7 @@
     "code": 200,
     "msg": "ok",
     "username": "John Doe",
-    "role": "customer",
+    "role": "store",
     "message": "message",
     "success": true
 

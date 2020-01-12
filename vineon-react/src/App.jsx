@@ -11,6 +11,7 @@ import { LogoutPage } from "./LogoutPage";
 import { AddWine } from "./Wine/AddWine";
 import { AllWines } from "./Wine/AllWines";
 import { StoreUpdate } from "./Store/StoreUpdate";
+import { UserUpdate } from "./User/UserUpdate";
 import { StoresOfWine } from "./Store/StoresOfWine";
 import { Route, BrowserRouter } from "react-router-dom";
 import { UserInfoContext, initialUserInfoState } from "./User/UserInfoContext";
@@ -73,6 +74,11 @@ export const App = () => {
                         exact
                         path="/user/store/update"
                         component={StoreUpdate}
+                      />
+                      <Route
+                        exact
+                        path="/user/customer/update"
+                        component={UserUpdate}
                       />
                       <Route
                         exact
