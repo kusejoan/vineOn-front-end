@@ -5,10 +5,10 @@ import { withRouter } from "react-router-dom";
 import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-
-const addWine = (wineName, country, year, color, type, history, setWine) => {
-  const response = WineService().addWine(wineName, country, year, color, type);
+const addWine = (JSESSINID,wineName, country, year, color, type, history, setWine) => {
+  const response = WineService().addWine(JSESSINID,wineName, country, year, color, type);
   response
     .then(value => {
       if (value.success === true) {
@@ -25,6 +25,8 @@ const AddWineComponent = ({ history }) => {
   const [year, setYear] = useState("");
   const [color, setColor] = useState("");
   const [type, setType] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
+
 
   return (
     <WineContext.Consumer>
@@ -33,7 +35,7 @@ const AddWineComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              addWine(wineName, country, year, color, type, history, setWine);
+              addWine(cookies.JSESSIONID,wineName, country, year, color, type, history, setWine);
             }}
           >
             <fieldset>

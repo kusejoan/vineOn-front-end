@@ -5,8 +5,8 @@ import { UserContext } from "./UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
 
-const update = (firstName, surname, birthdate, history, setUser, setCookie) => {
-  const response = UserService().updateUser(firstName, surname, birthdate);
+const update = (cookie, firstName, surname, birthdate, history, setUser, setCookie) => {
+  const response = UserService().updateUser(cookie, firstName, surname, birthdate);
   response
     .then(value => {
       if (value.success === true) {
@@ -28,7 +28,7 @@ const UserUpdateComponent = ({ history }) => {
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["storeName", "address", "city", "country", "website"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
 
 
   return (
@@ -38,7 +38,7 @@ const UserUpdateComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              update(firstName, surname, birthdate, history, setUser, setCookie);
+              update(cookies.JSESSIONID, firstName, surname, birthdate, history, setUser, setCookie);
             }}
           >
             <fieldset>

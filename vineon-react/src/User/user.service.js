@@ -13,41 +13,41 @@ const allWinesUrl = `${API_URL}/user/getAllWines`;
 
 
 export const UserService = () => ({
-  async login(username, password) {
+  async login(JSESSINID, username, password) {
     console.log(loginUrl);
     const response = await Axios.post(loginUrl, {
       headers: { Accept: APP_JSON },
-      params: { username, password }
+      params: { JSESSINID, username, password }
     });
 
     return response.data;
   },
 
-  async register(username, password, confirmPassword, role) {
+  async register(JSESSINID, username, password, confirmPassword, role) {
     console.log(userRegisterUrl);
     const response = await Axios.post(userRegisterUrl, {
       headers: { Accept: APP_JSON },
-      params: { username, password, role, passwordConfirm: confirmPassword }
+      params: { JSESSINID, username, password, role, passwordConfirm: confirmPassword }
     });
 
     return response.data;
   },
 
-  async update(address, city, country, website) {
+  async update(JSESSINID, address, city, country, website) {
     console.log(storeUpdateUrl);
     const response = await Axios.post(storeUpdateUrl, {
       headers: { Accept: APP_JSON },
-      params: { address, city, country, website }
+      params: { JSESSINID, address, city, country, website }
     });
 
     return response.data;
   },
 
-  async updateUser(firstName, surname, birthdate) {
+  async updateUser(JSESSINID, firstName, surname, birthdate) {
     console.log(userUpdateUrl);
     const response = await Axios.post(userUpdateUrl, {
       headers: { Accept: APP_JSON },
-      params: { firstName, surname, birthdate }
+      params: { JSESSINID, firstName, surname, birthdate }
     });
 
     return response.data;

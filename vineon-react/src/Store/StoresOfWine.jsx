@@ -3,9 +3,11 @@ import { UserService } from "../User/user.service";
 import { WineService } from "../Wine/wine.service";
 import { withRouter, Link } from "react-router-dom";
 import { StoreInfoContext } from "./StoreInfoContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-const StoresOfWineList = setStoresOfWine => {
-  const response = UserService().storesOfWine();
+
+const StoresOfWineList = (setStoresOfWine,JSESSIONID) => {
+  const response = UserService().storesOfWine(JSESSIONID);
   response
     .then(value => {
       setStoresOfWine(value.stores);
@@ -44,8 +46,10 @@ const StoresOfWineComponent = ({ history }) => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [website, setWebsite] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
 
-  if (storesOfWine.length === 0) StoresOfWineList(setStoresOfWine);
+
+  if (storesOfWine.length === 0) StoresOfWineList(setStoresOfWine, cookies.JSESSIONID);
   return (
     <React.Fragment>
       <div>Lista wszystkich sklepów mających to wino w ofercie:</div>

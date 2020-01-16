@@ -5,9 +5,11 @@ import { withRouter } from "react-router-dom";
 import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-const removeWineStore = (wineName, history, setWine) => {
-  const response = WineService().removeWineStore(wineName);
+
+const removeWineStore = (JSESSIONID, wineName, history, setWine) => {
+  const response = WineService().removeWineStore(JSESSIONID,wineName);
   response
     .then(value => {
       if (value.success === true) {
@@ -19,6 +21,8 @@ const removeWineStore = (wineName, history, setWine) => {
 
 const RemoveWineStoreComponent = ({ history }) => {
   const [wineName, setWineName] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
+
 
   return (
     <WineContext.Consumer>
@@ -27,7 +31,7 @@ const RemoveWineStoreComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              removeWineStore(wineName, history, setWine);
+              removeWineStore(cookies.JSESSIONID, wineName, history, setWine);
             }}
           >
             <fieldset>

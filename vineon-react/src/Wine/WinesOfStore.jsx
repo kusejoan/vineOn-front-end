@@ -7,8 +7,8 @@ import { UserContext } from "../User/UserContext";
 import { StoreInfoContext } from "../Store/StoreInfoContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-const WinesOfStoreList = (setAllWines, storeName) => {
-  const response = WineService().winesOfStore(storeName);
+const WinesOfStoreList = (JSESSIONID,setAllWines, storeName) => {
+  const response = WineService().winesOfStore(JSESSIONID,storeName);
   response
     .then(value => {
       setAllWines(value.wines);
@@ -55,7 +55,7 @@ const WinesOfStoreComponent = ({ history }) => {
         if (cookies.storeName === null) {
           {
             if (allWines.length === 0)
-              WinesOfStoreList(setAllWines, storeInfo.storeName);
+              WinesOfStoreList(cookies.JSESSIONID,setAllWines, storeInfo.storeName);
             return (
               <React.Fragment>
                 <div>Lista wszystkich win sklepu {storeInfo.storeName}:</div>

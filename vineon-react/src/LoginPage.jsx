@@ -8,8 +8,8 @@ import {Navbar} from "./Navbar/Navbar";
 import {ReactComponent as Vineicon} from "./icon.svg";
 
 
-const login = (username, password, history, setUser, setCookie) => {
-  const response = UserService().login(username, password);
+const login = (cookie, username, password, history, setUser, setCookie) => {
+  const response = UserService().login(cookie, username, password);
   response
     .then(value => {
       if (value.success === true && value.role === "customer") {
@@ -33,7 +33,7 @@ const register = (history) => {
 const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["session", "role"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","session", "role"]);
 
   return (
     <UserContext.Consumer>
@@ -43,7 +43,7 @@ const LoginPageComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              login(username, password, history, setUser, setCookie);
+              login(cookies.JSESSIONID, username, password, history, setUser, setCookie);
             }}
           >
             <fieldset className="login-form">

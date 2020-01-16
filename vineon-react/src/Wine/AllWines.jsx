@@ -5,9 +5,11 @@ import { withRouter, Link } from "react-router-dom";
 import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
 
-const AllWinesList = setAllWines => {
-  const response = WineService().allWines();
+
+const AllWinesList = (setAllWines, JSESSIONID) => {
+  const response = WineService().allWines(JSESSIONID);
   response
     .then(value => {
       setAllWines(value.wines);
@@ -46,8 +48,10 @@ const AllWinesComponent = ({ history }) => {
   const [year, setYear] = useState("");
   const [color, setColor] = useState("");
   const [type, setType] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
 
-  if (allWines.length === 0) AllWinesList(setAllWines);
+
+  if (allWines.length === 0) AllWinesList(setAllWines, cookies.JSESSIONID);
   return (
     <React.Fragment>
       <div>Lista wszystkich zarejestrowanych win:</div>

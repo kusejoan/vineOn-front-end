@@ -6,6 +6,7 @@ import { useCookies, withCookies } from "react-cookie";
 
 
 const register = (
+  Cookie,
   username,
   password,
   confirmPassword,
@@ -15,6 +16,7 @@ const register = (
   setCookie
 ) => {
   const response = UserService().register(
+    Cookie,
     username,
     password,
     confirmPassword,
@@ -42,7 +44,7 @@ const RegistrationPageComponent = ({ history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["session", "role"]);
+  const [cookies, setCookie, removeCookie, getCookie] = useCookies(["JSESSIONID","session", "role"]);
 
 
   return (
@@ -53,6 +55,7 @@ const RegistrationPageComponent = ({ history }) => {
             onSubmit={event => {
               event.preventDefault();
               register(
+                cookies.JSESSIONID,
                 username,
                 password,
                 confirmPassword,
