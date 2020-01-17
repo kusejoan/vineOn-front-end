@@ -1,5 +1,6 @@
 import Axios from "axios";
 import { API_URL, APP_JSON } from "../api";
+import * as querystring from "querystring";
 
 // POST JSON
 
@@ -17,7 +18,8 @@ export const WineService = () => ({
     console.log(addWineUrl);
     const response = await Axios.post(
       addWineUrl,
-      qs.stringify({
+
+        querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID, wineName, country, year, color, type }
       })
@@ -30,7 +32,7 @@ export const WineService = () => ({
     console.log(addWineStoreUrl);
     const response = await Axios.post(
       addWineStoreUrl,
-      qs.stringify({
+      querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID, wineName }
       })
@@ -43,7 +45,7 @@ export const WineService = () => ({
     console.log(removeWineStoreUrl);
     const response = await Axios.post(
       removeWineStoreUrl,
-      qs.stringify({
+      querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID, wineName }
       })
@@ -56,7 +58,7 @@ export const WineService = () => ({
     console.log(allWinesUrl);
     const response = await Axios.post(
       allWinesUrl,
-      qs.stringify({
+      querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID }
       })
@@ -69,7 +71,7 @@ export const WineService = () => ({
     console.log(winesOfStoreUrl);
     const response = await Axios.post(
       winesOfStoreUrl,
-      qs.stringify({
+      querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID, storeName }
       })

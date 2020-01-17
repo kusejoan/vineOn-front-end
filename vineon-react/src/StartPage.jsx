@@ -1,7 +1,7 @@
 import React from "react";
 
 export const StartPage = () => (
-  <div>
+  <div >
     <form>
       <button type="submit" formAction="/login">
         Log In
