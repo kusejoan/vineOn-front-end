@@ -21,7 +21,7 @@ export const StoreProfile = () => {
           Remove wine 
         </button>
         <button type="submit" formAction="/user/store/importcsv">
-          Your wines
+          Import wines from csv file
         </button>
         <button type="submit" formAction="/user/winesofstore">
           Your wines

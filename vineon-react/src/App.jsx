@@ -76,7 +76,7 @@ export const App = () => {
                       <Route exact path="/user/addwine" component={AddWine} />
                       <Route exact path="/user/store/addwine" component={AddWineStore} />
                       <Route exact path="/user/store/removewine" component={RemoveWineStore} />
-                      <Route exact path="/user/store/csvimort" component={StoreCsvImport} />
+                      <Route exact path="/user/store/importcsv" component={StoreCsvImport} />
 
                       <Route
                         exact
