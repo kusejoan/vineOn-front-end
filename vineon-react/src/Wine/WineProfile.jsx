@@ -16,6 +16,9 @@ export const WineProfile = () => (
       <button type="submit" formAction="/user/storesofwine">
         Wyświetl sklepy mające w ofercie to wino
       </button>
+      <button type="submit" formAction="/user/customer/ratewine">
+        oceń wino
+      </button>
     </form>
   </React.Fragment>
 );

@@ -30,9 +30,12 @@ import { AddSuccess } from "./Wine/AddSuccess";
 import { WinesOfStore } from "./Wine/WinesOfStore";
 import { RemoveWineStore } from "./Wine/RemoveWineStore";
 import { RemoveSuccess } from "./Wine/RemoveSuccess";
-import {ReactComponent as Vineicon} from "./icon.svg"
-import {SignUp} from "./SignUp";
+import { ReactComponent as Vineicon } from "./icon.svg";
+import { SignUp } from "./SignUp";
 import { StoreCsvImport } from "./Store/StoreCsvImport";
+import { RateWine } from "./Wine/Ratings/RateWine";
+import { AverageRating } from "./Wine/Ratings/AverageRating";
+import { RatingsOfWine } from "./Wine/Ratings/RatingsOfWine";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -48,74 +51,109 @@ export const App = () => {
         <div className="bottom-header"></div>
         <BrowserRouter>
           <div className="container">
-          <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>
-            <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
-              <UserContext.Provider value={{ user, setUser }}>
-                <StoreContext.Provider value={{ store, setStore }}>
-                  <WineContext.Provider value={{ wine, setWine }}>
-                    <div className="header">
-                      <Navbar />
-                    </div>
+            <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>
+              <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
+                <UserContext.Provider value={{ user, setUser }}>
+                  <StoreContext.Provider value={{ store, setStore }}>
+                    <WineContext.Provider value={{ wine, setWine }}>
+                      <div className="header">
+                        <Navbar />
+                      </div>
 
-                    <div className="content">
-                      <Route exact path="/" component={StartPage} />
-                      <Route exact path="/added" component={AddSuccess} />
-                      <Route exact path="/removed" component={RemoveSuccess} />
-                      <Route exact path="/login" component={LoginPage} />
-                      <Route exact path="/storeInfo" component={StoreInfo} />
-                      <Route exact path="/userInfo" component={UserInfo} />
-                      <Route exact path="/wine" component={WineProfile} />
-                      <Route exact path="/user" component={UserProfile} />
-                      <Route exact path="/user/logout" component={LogoutPage} />
-                      <Route path="/sign-up" component={SignUp} />
-                      <Route
-                        exact
-                        path="/user/store"
-                        component={StoreProfile}
-                      />
-                      <Route exact path="/user/addwine" component={AddWine} />
-                      <Route exact path="/user/store/addwine" component={AddWineStore} />
-                      <Route exact path="/user/store/removewine" component={RemoveWineStore} />
-                      <Route exact path="/user/store/importcsv" component={StoreCsvImport} />
+                      <div className="content">
+                        <Route exact path="/" component={StartPage} />
+                        <Route exact path="/added" component={AddSuccess} />
+                        <Route
+                          exact
+                          path="/removed"
+                          component={RemoveSuccess}
+                        />
+                        <Route exact path="/login" component={LoginPage} />
+                        <Route exact path="/storeInfo" component={StoreInfo} />
+                        <Route exact path="/userInfo" component={UserInfo} />
+                        <Route exact path="/wine" component={WineProfile} />
+                        <Route exact path="/user" component={UserProfile} />
+                        <Route
+                          exact
+                          path="/user/logout"
+                          component={LogoutPage}
+                        />
+                        <Route path="/sign-up" component={SignUp} />
+                        <Route
+                          exact
+                          path="/user/store"
+                          component={StoreProfile}
+                        />
+                        <Route exact path="/user/addwine" component={AddWine} />
+                        <Route
+                          exact
+                          path="/user/store/addwine"
+                          component={AddWineStore}
+                        />
+                        <Route
+                          exact
+                          path="/user/store/removewine"
+                          component={RemoveWineStore}
+                        />
+                        <Route
+                          exact
+                          path="/user/store/importcsv"
+                          component={StoreCsvImport}
+                        />
+                        <Route
+                          exact
+                          path="/user/customer/ratewine"
+                          component={RateWine}
+                        />
+                        <Route
+                          exact
+                          path="/user/averagerating"
+                          component={AverageRating}
+                        />
+                        <Route
+                          exact
+                          path="/user/ratingsofwine"
+                          component={RatingsOfWine}
+                        />
 
-                      <Route
-                        exact
-                        path="/user/getAllWines"
-                        component={AllWines}
-                      />
-                      <Route
-                        exact
-                        path="/user/storesofwine"
-                        component={StoresOfWine}
-                      />
-                      <Route
-                        exact
-                        path="/user/winesofstore"
-                        component={WinesOfStore}
-                      />
-                      <Route
-                        exact
-                        path="/user/store/update"
-                        component={StoreUpdate}
-                      />
-                      <Route
-                        exact
-                        path="/user/customer/update"
-                        component={UserUpdate}
-                      />
-                      <Route
-                        exact
-                        path="/register"
-                        component={RegistrationPage}
-                      />
-                    </div>
-                  </WineContext.Provider>
-                </StoreContext.Provider>
-              </UserContext.Provider>
-            </UserInfoContext.Provider>
-          </StoreInfoContext.Provider>
-        </div>
-      </BrowserRouter>
+                        <Route
+                          exact
+                          path="/user/getAllWines"
+                          component={AllWines}
+                        />
+                        <Route
+                          exact
+                          path="/user/storesofwine"
+                          component={StoresOfWine}
+                        />
+                        <Route
+                          exact
+                          path="/user/winesofstore"
+                          component={WinesOfStore}
+                        />
+                        <Route
+                          exact
+                          path="/user/store/update"
+                          component={StoreUpdate}
+                        />
+                        <Route
+                          exact
+                          path="/user/customer/update"
+                          component={UserUpdate}
+                        />
+                        <Route
+                          exact
+                          path="/register"
+                          component={RegistrationPage}
+                        />
+                      </div>
+                    </WineContext.Provider>
+                  </StoreContext.Provider>
+                </UserContext.Provider>
+              </UserInfoContext.Provider>
+            </StoreInfoContext.Provider>
+          </div>
+        </BrowserRouter>
       </div>
     </CookiesProvider>
   );

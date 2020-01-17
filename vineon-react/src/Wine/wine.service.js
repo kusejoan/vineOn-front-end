@@ -5,13 +5,13 @@ import qs from "qs";
 
 // POST JSON
 
-const loginUrl = `${API_URL}/login`;
-const userRegisterUrl = `${API_URL}/register`;
-const storeUpdateUrl = `${API_URL}/user/store/update`;
 const addWineUrl = `${API_URL}/user/addwine`;
 const addWineStoreUrl = `${API_URL}/user/store/addwine`;
 const removeWineStoreUrl = `${API_URL}/user/store/removewine`;
+const rateWineUrl = `${API_URL}/user/customer/ratewine`;
+const ratingsOfWineUrl = `${API_URL}/user/ratingsofwine`;
 const allWinesUrl = `${API_URL}/user/getAllWines`;
+const averageRatingUrl = `${API_URL}/user/averagerating`;
 const importCsvUrl = `${API_URL}/user/store/importcsv`;
 const winesOfStoreUrl = `${API_URL}/user/winesofstore`;
 
@@ -37,6 +37,45 @@ export const WineService = () => ({
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { data }
+      })
+    );
+
+    return response.data;
+  },
+
+  async rateWine(wineName, grade, description) {
+    console.log(rateWineUrl);
+    const response = await Axios.post(
+      rateWineUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { wineName, grade, description }
+      })
+    );
+
+    return response.data;
+  },
+
+  async ratingsOfWine(wineName) {
+    console.log(ratingsOfWineUrl);
+    const response = await Axios.post(
+      ratingsOfWineUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { wineName}
+      })
+    );
+
+    return response.data;
+  },
+
+  async averageRating(wineName) {
+    console.log(averageRatingUrl);
+    const response = await Axios.post(
+      averageRatingUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { wineName}
       })
     );
 
