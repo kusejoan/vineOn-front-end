@@ -6,8 +6,8 @@ import { StoreInfoContext } from "./StoreInfoContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
 
-const StoresOfWineList = (setStoresOfWine,JSESSIONID) => {
-  const response = UserService().storesOfWine(JSESSIONID);
+const StoresOfWineList = (setStoresOfWine,wineName) => {
+  const response = UserService().storesOfWine(wineName);
   response
     .then(value => {
       setStoresOfWine(value.stores);
@@ -46,10 +46,10 @@ const StoresOfWineComponent = ({ history }) => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [website, setWebsite] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["wine","storeName", "address", "city", "country", "website"]);
 
 
-  if (storesOfWine.length === 0) StoresOfWineList(setStoresOfWine, cookies.JSESSIONID);
+  if (storesOfWine.length === 0) StoresOfWineList(setStoresOfWine, cookies.wine);
   return (
     <React.Fragment>
       <div>Lista wszystkich sklepów mających to wino w ofercie:</div>

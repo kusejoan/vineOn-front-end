@@ -1,6 +1,5 @@
 import Axios from "axios";
 import { API_URL, APP_JSON } from "../api";
-import * as qs from "querystring";
 import qs from "qs";
 
 // POST JSON
