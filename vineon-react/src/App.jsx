@@ -39,6 +39,7 @@ import { RatingsOfWine } from "./Wine/Ratings/RatingsOfWine";
 import { FollowSuccess } from "./User/FollowSuccess";
 import { UnfollowSuccess } from "./User/UnfollowSuccess";
 import { Recommendations } from "./User/UserRecommendations";
+import { AddFailure } from "./Wine/AddFailure";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -66,6 +67,8 @@ export const App = () => {
                       <div className="content">
                         <Route exact path="/" component={StartPage} />
                         <Route exact path="/added" component={AddSuccess} />
+                        <Route exact path="/failure" component={AddFailure} />
+
                         <Route
                           exact
                           path="/removed"
