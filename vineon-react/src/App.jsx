@@ -36,6 +36,8 @@ import { StoreCsvImport } from "./Store/StoreCsvImport";
 import { RateWine } from "./Wine/Ratings/RateWine";
 import { AverageRating } from "./Wine/Ratings/AverageRating";
 import { RatingsOfWine } from "./Wine/Ratings/RatingsOfWine";
+import { FollowSuccess } from "./User/FollowSuccess";
+import { UnfollowSuccess } from "./User/UnfollowSuccess";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -73,6 +75,8 @@ export const App = () => {
                         <Route exact path="/userInfo" component={UserInfo} />
                         <Route exact path="/wine" component={WineProfile} />
                         <Route exact path="/user" component={UserProfile} />
+                        <Route exact path="/user/followsuccess" component={FollowSuccess} />
+                        <Route exact path="/user/unfollowsuccess" component={UnfollowSuccess} />
                         <Route
                           exact
                           path="/user/logout"

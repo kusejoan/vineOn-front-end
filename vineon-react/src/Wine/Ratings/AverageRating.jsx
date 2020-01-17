@@ -8,7 +8,7 @@ import { StoreContext } from "../../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
 const AverageRatingGet = (wineName, setGrade, setAmountOfGrades) => {
-  const response = WineService().ratingsOfWine(wineName);
+  const response = WineService().averageRating(wineName);
   response
     .then(value => {
       if (value.success === true) {

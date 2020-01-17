@@ -5,8 +5,8 @@ import { StoreContext } from "./StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
 
-const update = (cookie, address, city, country, website, history, setStore, setCookie) => {
-  const response = UserService().update(cookie, address, city, country, website);
+const update = (cookie, storeName, address, city, country, website, history, setStore, setCookie) => {
+  const response = UserService().update(cookie, storeName, address, city, country, website);
   response
     .then(value => {
       if (value.data.success === true) {
@@ -29,6 +29,7 @@ const update = (cookie, address, city, country, website, history, setStore, setC
 };
 
 const StoreUpdateComponent = ({ history }) => {
+  const [storeName, setStoreName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
@@ -43,10 +44,18 @@ const StoreUpdateComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              update(cookies.JSESSIONID,address, city, country, website, history, setStore, setCookie);
+              update(cookies.JSESSIONID, storeName,address, city, country, website, history, setStore, setCookie);
             }}
           >
             <fieldset>
+            <p>
+                Store name:
+                <input
+                  type="text"
+                  onChange={event => setStoreName(event.target.value)}
+                  value={storeName}
+                />
+              </p>
               <p>
                 address:
                 <input
