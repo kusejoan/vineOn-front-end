@@ -3,7 +3,7 @@ import { UserService } from "./User/user.service";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
 import { useCookies, withCookies } from "react-cookie";
-
+import "./LoginPage.css";
 
 const register = (
   Cookie,
@@ -65,10 +65,10 @@ const RegistrationPageComponent = ({ history }) => {
               );
             }}
           >
-            <fieldset>
+            <fieldset className="login-form">
               <p>
                 username:
-                <input
+                <input className="login-input"
                   type="text"
                   onChange={event => setUsername(event.target.value)}
                   value={username}
@@ -76,7 +76,7 @@ const RegistrationPageComponent = ({ history }) => {
               </p>
               <p>
                 password:
-                <input
+                <input className="login-input"
                   type="text"
                   onChange={event => setPassword(event.target.value)}
                   value={password}
@@ -84,7 +84,7 @@ const RegistrationPageComponent = ({ history }) => {
               </p>
               <p>
                 confirm password:
-                <input
+                <input className="login-input"
                   type="text"
                   onChange={event => setConfirmPassword(event.target.value)}
                   value={confirmPassword}
@@ -92,13 +92,13 @@ const RegistrationPageComponent = ({ history }) => {
               </p>
               <p>
                 role:
-                <input
+                <input className="login-input"
                   type="text"
                   onChange={event => setRole(event.target.value)}
                   value={role}
                 />
               </p>
-              <input type="submit" value="Submit" />
+              <input className="login-input submit-button" type="submit" value="Zarejestruj" />
             </fieldset>
           </form>
         </React.Fragment>
