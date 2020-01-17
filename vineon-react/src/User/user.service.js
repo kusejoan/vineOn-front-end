@@ -10,6 +10,7 @@ const userUpdateUrl = `${API_URL}/user/customer/update`;
 const storesOfWineUrl = `${API_URL}/user/storesofwine`;
 const followUrl = `${API_URL}/user/follow`;
 const unfollowUrl = `${API_URL}/user/unfollow`;
+const recommendationsUrl = `${API_URL}/user/customer/recommendations`;
 
 
 
@@ -80,6 +81,19 @@ export const UserService = () => ({
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { username }
+      })
+    );
+
+    return response.data;
+  },
+
+  async recommendations(onlyFollowed, limit, color, country) {
+    console.log(recommendationsUrl);
+    const response = await Axios.post(
+      recommendationsUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { onlyFollowed, limit, color, country }
       })
     );
 

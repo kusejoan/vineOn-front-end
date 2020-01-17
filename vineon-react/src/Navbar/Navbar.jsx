@@ -30,7 +30,7 @@ export const Navbar = () => {
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
             <NavbarItem path="/user" title="Profile"></NavbarItem>
-            <NavbarItem path="/user/logout" callback={() => logoutUser()} title="Logout" ></NavbarItem>
+            <NavbarItem path="/user/logout" callback={() => logoutUser} title="Logout" ></NavbarItem>
           </form>
         </div>
         <br />
@@ -45,7 +45,7 @@ export const Navbar = () => {
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
             <NavbarItem path="/user/store" title="Profile"></NavbarItem>
-            <NavbarItem path="/user/logout" callback={() => logoutStore()} title="Logout"></NavbarItem>
+            <NavbarItem path="/user/logout" callback={() => logoutStore} title="Logout"></NavbarItem>
           </form>
         </div>
         <br />

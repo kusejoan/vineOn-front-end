@@ -38,6 +38,7 @@ import { AverageRating } from "./Wine/Ratings/AverageRating";
 import { RatingsOfWine } from "./Wine/Ratings/RatingsOfWine";
 import { FollowSuccess } from "./User/FollowSuccess";
 import { UnfollowSuccess } from "./User/UnfollowSuccess";
+import { Recommendations } from "./User/UserRecommendations";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -77,6 +78,7 @@ export const App = () => {
                         <Route exact path="/user" component={UserProfile} />
                         <Route exact path="/user/followsuccess" component={FollowSuccess} />
                         <Route exact path="/user/unfollowsuccess" component={UnfollowSuccess} />
+                        <Route exact path="/user/customer/recommendations" component={Recommendations} />
                         <Route
                           exact
                           path="/user/logout"

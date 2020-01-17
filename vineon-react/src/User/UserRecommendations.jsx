@@ -1,18 +1,26 @@
 import React, { useState } from "react";
-import { UserService } from "../User/user.service";
-import { WineService } from "./wine.service";
-import { withRouter, Link } from "react-router-dom";
-import { WineContext } from "./WineContext";
-import { UserContext } from "../User/UserContext";
-import { StoreContext } from "../Store/StoreContext";
+import { UserService } from "./user.service";
+import { withRouter } from "react-router-dom";
+import { UserContext } from "./UserContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-const AllWinesList = (setAllWines, JSESSIONID) => {
-  const response = WineService().allWines(JSESSIONID);
+const RecommendationsList = (
+  setRecommendations,
+  onlyFollowed,
+  limit,
+  color,
+  country
+) => {
+  const response = UserService().reccommendations(
+    onlyFollowed,
+    limit,
+    color,
+    country
+  );
   response
     .then(value => {
       if (value.success == true) {
-        setAllWines(value.wines);
+        setRecommendations(value.wines);
       }
     })
     .catch(error => console.log(error));
@@ -42,8 +50,8 @@ const displayWine = (
   </React.Fragment>
 );
 
-const AllWinesComponent = ({ history }) => {
-  const [allWines, setAllWines] = useState([]);
+const RecommendationsComponent = ({ history }) => {
+  const [reccommendations, setRecommendations] = useState([]);
   const [wineName, setWineName] = useState("");
   const [country, setCountry] = useState("");
   const [year, setYear] = useState("");
@@ -55,18 +63,29 @@ const AllWinesComponent = ({ history }) => {
     "address",
     "city",
     "country",
-    "website"
+    "website",
+    "SonlyFollowed",
+    "Slimit",
+    "Scolor",
+    "Scountry"
   ]);
 
-  if (allWines.length === 0) AllWinesList(setAllWines, cookies.JSESSIONID);
+  if (reccommendations.length === 0)
+    RecommendationsList(
+      setRecommendations,
+      cookies.SonlyFollowed,
+      cookies.Slimit,
+      cookies.Scolor,
+      cookies.Scountry
+    );
   return (
     <React.Fragment>
-      <div>Lista wszystkich zarejestrowanych win:</div>
-      {allWines.map(
+      <div>Lista wszystkich polecanych win:</div>
+      {reccommendations.map(
         displayWine(setWineName, setCountry, setYear, setColor, setType)
       )}
     </React.Fragment>
   );
 };
 
-export const AllWines = withRouter(AllWinesComponent);
+export const Recommendations = withRouter(RecommendationsComponent);
