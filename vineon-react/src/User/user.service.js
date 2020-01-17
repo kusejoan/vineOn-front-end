@@ -8,6 +8,10 @@ const userRegisterUrl = `${API_URL}/register`;
 const storeUpdateUrl = `${API_URL}/user/store/update`;
 const userUpdateUrl = `${API_URL}/user/customer/update`;
 const storesOfWineUrl = `${API_URL}/user/storesofwine`;
+const followUrl = `${API_URL}/user/follow`;
+const unfollowUrl = `${API_URL}/user/unfollow`;
+
+
 
 Axios.defaults.withCredentials = true;
 export const UserService = () => ({
@@ -57,9 +61,9 @@ export const UserService = () => ({
   },
 
   async follow(username) {
-    console.log(storeUpdateUrl);
+    console.log(followUrl);
     const response = await Axios.post(
-      storeUpdateUrl,
+      followUrl,
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { username }
@@ -70,9 +74,9 @@ export const UserService = () => ({
   },
 
   async unfollow(username) {
-    console.log(storeUpdateUrl);
+    console.log(unfollowUrl);
     const response = await Axios.post(
-      storeUpdateUrl,
+      unfollowUrl,
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { username }
