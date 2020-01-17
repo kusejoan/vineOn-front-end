@@ -1,5 +1,7 @@
 import React from "react";
 import { WineContext } from "./WineContext";
+import { CookiesProvider, useCookies } from "react-cookie";
+
 
 export const WineProfile = () => {
   const [cookies, setCookie, removeCookie] = useCookies([
