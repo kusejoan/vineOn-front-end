@@ -1,6 +1,8 @@
 import React from "react";
 import { UserInfoContext } from "./UserInfoContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import { UserService } from "./user.service";
+
 
 const SetFollow = (username, history) => () => {
   const response = UserService().follow(username);
