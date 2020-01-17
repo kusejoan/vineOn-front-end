@@ -12,6 +12,7 @@ const addWineUrl = `${API_URL}/user/addwine`;
 const addWineStoreUrl = `${API_URL}/user/store/addwine`;
 const removeWineStoreUrl = `${API_URL}/user/store/removewine`;
 const allWinesUrl = `${API_URL}/user/getAllWines`;
+const importCsvUrl = `${API_URL}/user/store/importcsv`;
 const winesOfStoreUrl = `${API_URL}/user/winesofstore`;
 
 export const WineService = () => ({
@@ -23,6 +24,19 @@ export const WineService = () => ({
         querystring.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID, wineName, country, year, color, type }
+      })
+    );
+
+    return response.data;
+  },
+
+  async importCsv(data) {
+    console.log(importCsvUrl);
+    const response = await Axios.post(
+      importCsvUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { data }
       })
     );
 
