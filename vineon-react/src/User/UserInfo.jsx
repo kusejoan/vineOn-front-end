@@ -16,7 +16,7 @@ const SetFollow = (username, history) => () => {
 };
 
 const SetUnfollow = (username, history) => () => {
-  const response = UserService().follow(username);
+  const response = UserService().unfollow(username);
   response
     .then(value => {
       if (value.success === true) {
