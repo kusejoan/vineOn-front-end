@@ -38,7 +38,7 @@ const RateWineComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              rateWine(wine.wineName, grade, description, history);
+              rateWine(cookies.wine, grade, description, history);
             }}
           >
             <fieldset>

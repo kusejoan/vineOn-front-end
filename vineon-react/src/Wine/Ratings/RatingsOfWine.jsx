@@ -54,7 +54,7 @@ const RatingsOfWineComponent = ({ history }) => {
     <WineContext.Consumer>
     {({ wine, setWine }) => {
         if (ratingsOfWine.length === 0) 
-            RatingsOfWineList(setRatingsOfWine, wine.wineName);
+            RatingsOfWineList(setRatingsOfWine, cookies.wine);
         return (
             <React.Fragment>
                 <div>Lista ocen:</div>

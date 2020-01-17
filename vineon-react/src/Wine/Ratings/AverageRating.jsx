@@ -37,7 +37,7 @@ const AverageRatingComponent = ({ history }) => {
   return (
     <WineContext.Consumer>
     {({ wine, setWine }) => {
-        AverageRatingGet(wine.wineName, setGrade, setAmountOfGrades);
+        AverageRatingGet(cookies.wine, setGrade, setAmountOfGrades);
         return (
             <React.Fragment>
                 <div>Średnia ocen: {grade}    Liczba ocen {amountOfGrades}</div>
