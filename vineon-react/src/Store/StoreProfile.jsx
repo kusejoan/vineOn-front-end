@@ -20,6 +20,9 @@ export const StoreProfile = () => {
         <button type="submit" formAction="/user/store/removewine">
           Remove wine 
         </button>
+        <button type="submit" formAction="/user/store/importcsv">
+          Your wines
+        </button>
         <button type="submit" formAction="/user/winesofstore">
           Your wines
         </button>

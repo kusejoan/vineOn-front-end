@@ -32,6 +32,7 @@ import { RemoveWineStore } from "./Wine/RemoveWineStore";
 import { RemoveSuccess } from "./Wine/RemoveSuccess";
 import {ReactComponent as Vineicon} from "./icon.svg"
 import {SignUp} from "./SignUp";
+import { StoreCsvImport } from "./Store/StoreCsvImport";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -75,6 +76,8 @@ export const App = () => {
                       <Route exact path="/user/addwine" component={AddWine} />
                       <Route exact path="/user/store/addwine" component={AddWineStore} />
                       <Route exact path="/user/store/removewine" component={RemoveWineStore} />
+                      <Route exact path="/user/store/csvimort" component={StoreCsvImport} />
+
                       <Route
                         exact
                         path="/user/getAllWines"
