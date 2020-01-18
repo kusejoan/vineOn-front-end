@@ -16,7 +16,7 @@ const allUsersUrl = `${API_URL}/user/getallusers`;
 
 Axios.defaults.withCredentials = true;
 export const UserService = () => ({
-  async login(JSESSINID, username, password) {
+  async login( username, password) {
     console.log(loginUrl);
     const response = await Axios.post(
       loginUrl,

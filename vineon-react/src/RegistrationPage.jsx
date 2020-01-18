@@ -26,8 +26,8 @@ const register = (
     .then(value => {
       if (value.success === true && value.role === "customer") {
         setUser({ username: value.username, role: value.role });
-        setCookie('session', value.username, { path: '/' });
-        setCookie('role', value.role, { path: '/' });
+        setCookie("session", value.username, { path: '/' });
+        setCookie("role", value.role, { path: '/' });
         history.push("/user/customer/update");
       } else if (value.success === true && value.role === "store") {
         setUser({ username: value.username, role: value.role });

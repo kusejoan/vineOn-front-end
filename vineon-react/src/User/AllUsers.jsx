@@ -8,11 +8,15 @@ const AllUsersList = (setAllUsers, history) => {
   const response = UserService().allUsers();
   response
     .then(value => {
-      if (value.success == true) {
+      console.log(value);
+      if (value.success === true && value.users.length !== 0) {
         setAllUsers(value.users);
       } else if (value.success === false) {
         history.push("/failure");
+      } else if (value.success === true && value.users.length === 0) {
+        history.push("/nomatchesfound");
       }
+
     })
     .catch(error => console.log(error));
 };

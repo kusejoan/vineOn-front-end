@@ -44,11 +44,9 @@ const UserUpdateComponent = ({ history }) => {
   const [birthdate, setBirthdate] = useState("");
   const [cookies, setCookie, removeCookie] = useCookies([
     "JSESSIONID",
-    "storeName",
-    "address",
-    "city",
-    "country",
-    "website"
+    "firstName",
+    "surname",
+    "birthday"
   ]);
 
   return (

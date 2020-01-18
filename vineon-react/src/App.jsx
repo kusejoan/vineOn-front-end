@@ -44,7 +44,6 @@ import { AllUsers } from "./User/AllUsers";
 import { NoMatchesFound } from "./Wine/NoMatchesFound";
 import { SearchWine } from "./Wine/WineSearch";
 
-
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
   const [store, setStore] = useState(initialStoreState);
@@ -72,7 +71,11 @@ export const App = () => {
                         <Route exact path="/" component={LoginPage} />
                         <Route exact path="/added" component={AddSuccess} />
                         <Route exact path="/failure" component={AddFailure} />
-                        <Route exact path="/nomatchesfound" component={NoMatchesFound} />
+                        <Route
+                          exact
+                          path="/nomatchesfound"
+                          component={NoMatchesFound}
+                        />
 
                         <Route
                           exact
@@ -84,9 +87,21 @@ export const App = () => {
                         <Route exact path="/userInfo" component={UserInfo} />
                         <Route exact path="/wine" component={WineProfile} />
                         <Route exact path="/user" component={UserProfile} />
-                        <Route exact path="/user/followsuccess" component={FollowSuccess} />
-                        <Route exact path="/user/unfollowsuccess" component={UnfollowSuccess} />
-                        <Route exact path="/user/customer/recommendations" component={Recommendations} />
+                        <Route
+                          exact
+                          path="/user/followsuccess"
+                          component={FollowSuccess}
+                        />
+                        <Route
+                          exact
+                          path="/user/unfollowsuccess"
+                          component={UnfollowSuccess}
+                        />
+                        <Route
+                          exact
+                          path="/user/customer/recommendations"
+                          component={Recommendations}
+                        />
                         <Route
                           exact
                           path="/user/logout"
@@ -99,7 +114,11 @@ export const App = () => {
                           component={StoreProfile}
                         />
                         <Route exact path="/user/addwine" component={AddWine} />
-                                                <Route exact path="/user/searchwine" component={SearchWine} />
+                        <Route
+                          exact
+                          path="/user/searchwine"
+                          component={SearchWine}
+                        />
 
                         <Route
                           exact

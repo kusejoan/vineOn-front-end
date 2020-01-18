@@ -11,11 +11,15 @@ const AllWinesList = (setAllWines, JSESSIONID, history) => {
   const response = WineService().allWines(JSESSIONID);
   response
     .then(value => {
-      if (value.success == true) {
+      console.log(value);
+      if (value.success === true && value.wines.length !== 0) {
         setAllWines(value.wines);
       } else if (value.success === false) {
         history.push("/failure");
+      } else if (value.success === true && value.wines.length === 0) {
+        history.push("/nomatchesfound");
       }
+
     })
     .catch(error => console.log(error));
 };

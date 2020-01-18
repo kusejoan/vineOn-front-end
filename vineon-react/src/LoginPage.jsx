@@ -7,19 +7,22 @@ import "./LoginPage.css";
 import {ReactComponent as Vineicon} from "./icon.svg";
 
 
-const login = (cookie, username, password, history, setUser, setCookie) => {
-  const response = UserService().login(cookie, username, password);
+const login = (cookies, username, password, history, setUser, setCookie) => {
+  const response = UserService().login(username, password);
   response
     .then(value => {
+      console.log(value);
       if (value.success === true && value.role === "customer") {
+        console.log(value);
+        setCookie("session", value.username, { path: '/' });
+        setCookie("role", value.role, { path: '/' });
+        console.log(cookies);
         setUser({ username: value.username, role: value.role });
-        setCookie('session', value.username, { path: '/' });
-        setCookie('role', value.role, { path: '/' });
         history.push("/user");
       } else if (value.success === true && value.role === "store") {
-        setUser({ username: value.username, role: value.role });
         setCookie('session', value.username, { path: '/' });
         setCookie('role', value.role, { path: '/' });
+        setUser({ username: value.username, role: value.role });
         history.push("/user/store");
       } else if (value.success === false) {
         history.push("/failure");
@@ -27,6 +30,7 @@ const login = (cookie, username, password, history, setUser, setCookie) => {
     })
     .catch(error => console.log(error));
 };
+
 const register = (history) => {
   history.push("/register");
 }
@@ -35,6 +39,7 @@ const LoginPageComponent = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","session", "role"]);
+  console.log(cookies);
 
   return (
     <UserContext.Consumer>
@@ -44,7 +49,7 @@ const LoginPageComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              login(cookies.JSESSIONID, username, password, history, setUser, setCookie);
+              login(cookies, username, password, history, setUser, setCookie);
             }}
           >
             <fieldset className="login-form" >
