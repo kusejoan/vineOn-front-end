@@ -44,15 +44,15 @@ export const UserInfo = ({ history }) => {
           <React.Fragment>
             <div>
               {" "}
-              Profile of user: {userInfo.username},<br />
+              Profil użytkownika: {userInfo.username} <br />
             </div>
 
             <div>
-              <button onClick={SetFollow(cookies.userInfo, history)}>
-                follow
+              <button className="label-container" onClick={SetFollow(cookies.userInfo, history)}>
+                Obserwuj
               </button>
-              <button onClick={SetUnfollow(cookies.userInfo, history)}>
-                unfollow
+              <button className="label-container" onClick={SetUnfollow(cookies.userInfo, history)}>
+                Przestań obserwować
               </button>
             </div>
           </React.Fragment>

@@ -4,7 +4,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 export const NoMatchesFound = () => {
   return (
     <React.Fragment>
-      <div> No matches found</div>
+      <div> Przepraszamy, nie znaleźliśmy dopasowania.</div>
     </React.Fragment>
   );
 };

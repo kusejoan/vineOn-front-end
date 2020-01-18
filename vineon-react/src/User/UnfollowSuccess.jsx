@@ -10,7 +10,7 @@ const UserUnfollowComponent = ({ history }) => {
   return (
     <React.Fragment>
       <div>
-        You're not following user: {cookies.userInfo},<br />
+        Nie obserwujesz użytkownika: {cookies.userInfo} <br />
       </div>
     </React.Fragment>
   );

@@ -1,6 +1,9 @@
 import React from "react";
 import { WineContext } from "./WineContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import {NavbarItem} from "../Navbar/NavbarItem";
+import {Navbar} from "../Navbar/Navbar";
+import"./WineProfile.css"
 
 
 export const WineProfile = () => {
@@ -16,25 +19,19 @@ export const WineProfile = () => {
         setCookie("wine", wine.wineName);
         return (
           <React.Fragment>
-            <div>
+            <div className="wine-profile">
               {" "}
-              {wine.wineName}, Country: {wine.country}; Year: {wine.year};
-              Color: {wine.color}, Type:{wine.type}
+              Name: {wine.wineName} <br />
+              Country: {wine.country} <br />
+              Year: {wine.year} <br />
+              Color: {wine.color} <br />
+              Type:{wine.type} <br />
             </div>
-
             <form>
-              <button type="submit" formAction="/user/storesofwine">
-                Wyświetl sklepy mające w ofercie to wino
-              </button>
-              <button type="submit" formAction="/user/customer/ratewine">
-                oceń wino
-              </button>
-              <button type="submit" formAction="/user/averagerating">
-                średnia ocen
-              </button>
-              <button type="submit" formAction="/user/ratingsofwine">
-                lista ocen
-              </button>
+              <NavbarItem  path="/user/storesofwine" title="Sklepy z winem"></NavbarItem>
+              <NavbarItem path="/user/customer/ratewine" title="Recenzuj wino"></NavbarItem>
+              <NavbarItem path="/user/averagerating" title="Średnia ocen"></NavbarItem>
+              <NavbarItem path="/user/ratingsofwine" title="Oceny użytkowników"></NavbarItem>
             </form>
           </React.Fragment>
         );

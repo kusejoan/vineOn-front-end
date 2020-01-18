@@ -12,7 +12,7 @@ const addWine = (JSESSINID,wineName, country, year, color, type, history, setWin
   response
     .then(value => {
       if (value.success === true) {
-        setWine({ wineName: wineName, country: country, year: year, color: color, type: type}); 
+        setWine({ wineName: wineName, country: country, year: year, color: color, type: type});
         history.push("/wine");
       }else if (value.success === false) {
         history.push("/failure");
@@ -40,7 +40,7 @@ const AddWineComponent = ({ history }) => {
               addWine(cookies.JSESSIONID,wineName, country, year, color, type, history, setWine);
             }}
           >
-            <fieldset>
+            <fieldset className="login-form">
               <p>
                 Wine name:
                 <input

@@ -1,31 +1,25 @@
 import React from "react";
 import { StoreContext } from "./StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import {NavbarItem} from "../Navbar/NavbarItem";
 
 export const StoreProfile = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["storeName"]);
   return (
     <React.Fragment>
-      <div>
+      <div className="store-profile">
         {" "}
-        You re logged in as a store {cookies.storeName},<br /> info:{" "}
-        <br /> city: {cookies.city}, country: {cookies.country},
-        website: {cookies.website}
+        Jesteś zalogowany jako {cookies.storeName} <br /> Informacje:{" "}
+        <br />
+        Miasto: {cookies.city}  <br />
+        Kraj: {cookies.country}  <br />
+        Adres strony: {cookies.website}
       </div>
-
       <form>
-        <button type="submit" formAction="/user/store/addwine">
-          Add Wine to your offer
-        </button>
-        <button type="submit" formAction="/user/store/removewine">
-          Remove wine 
-        </button>
-        <button type="submit" formAction="/user/store/importcsv">
-          Import wines from csv file
-        </button>
-        <button type="submit" formAction="/user/winesofstore">
-          Your wines
-        </button>
+        <NavbarItem path="/user/store/addwine" title="Dodaj wino"></NavbarItem>
+        <NavbarItem path="/user/store/removewine" title="Usuń wino"></NavbarItem>
+        <NavbarItem path="/user/store/importcsv" title="Importuj "></NavbarItem>
+        <NavbarItem path="/user/winesofstore" title="Twoje wina"></NavbarItem>
       </form>
     </React.Fragment>
   );

@@ -59,7 +59,7 @@ const LoginPageComponent = ({ history }) => {
                                    value={password}
                             />
                         </p>
-                        <input className="login-input submit-button"  type="submit" value="Zarejestruj się" />
+                        <input className="login-input submit-button"  type="submit" value="Zarejestruj" />
                     </fieldset>
                 </form>
             </React.Fragment>)

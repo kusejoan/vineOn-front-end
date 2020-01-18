@@ -4,7 +4,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 export const LogoutPage = () => {
   return (
     <React.Fragment>
-      <div> You logged out successfully</div>
+      <div> Zostałeś wylogowany.</div>
     </React.Fragment>
   );
 };

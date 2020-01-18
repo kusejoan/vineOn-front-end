@@ -4,7 +4,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 export const AddFailure = () => {
   return (
     <React.Fragment>
-      <div> Something went wrong</div>
+      <div> Przepraszamy, coś poszło nie tak. </div>
     </React.Fragment>
   );
 };

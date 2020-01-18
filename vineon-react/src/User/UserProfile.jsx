@@ -27,20 +27,18 @@ export const UserProfile = ({history}) => {
 
   return (
     <React.Fragment>
-      <div> You re logged in {cookies.session}</div>
+      <div> Jesteś zalogowany jako {cookies.session}</div>
       <div className="label-container">
-        <div className="label">
           <form>
-            <button type="submit" formAction="/user/addwine">
-              Add Wine
+            <button type="submit" className="label" formAction="/user/addwine">
+              Dodaj wino
             </button>
           </form>
-        </div>
       </div>
       <br />
       <br />
       <p>
-        Polecane dla cb:
+        Polecane dla ciebie:
         <br />
         <form
           onSubmit={event => {
@@ -48,41 +46,38 @@ export const UserProfile = ({history}) => {
             recommended(setCookie, onlyFollowed, limit, color, country, history);
           }}
         >
-          <fieldset>
+          <fieldset className="login-form">
             <p>
               Brać pod uwagę oceny tlyko śledzonych użytkowników? (true/false):
-              <input
-                type="text"
+              <input className="login-input"
+                type="text" placeholder=""
                 onChange={event => setOnlyFollowed(event.target.value)}
                 value={onlyFollowed}
               />
             </p>
             <p>
-              limit:
-              <input
-                type="text"
+              <input className="login-input"
+                type="text" placeholder="Ograniczenie"
                 onChange={event => setLimit(event.target.value)}
                 value={limit}
               />
             </p>
             <p>
-              color:
-              <input
-                type="text"
+              <input className="login-input"
+                type="text" placeholder="Kolor"
                 onChange={event => setColor(event.target.value)}
                 value={color}
               />
             </p>
             <p>
-              country:
-              <input
-                type="text"
+              <input className="login-input"
+                type="text" placeholder="Kraj"
                 onChange={event => setCountry(event.target.value)}
                 value={country}
               />
             </p>
             <p>
-            <input type="submit" value="Submit" />
+            <input className="login-input submit-button"  type="submit" value="Zatwierdź"/>
             </p>
           </fieldset>
         </form>

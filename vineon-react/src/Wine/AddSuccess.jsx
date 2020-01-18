@@ -1,10 +1,9 @@
 import React from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
-
 export const AddSuccess = () => {
   return (
     <React.Fragment>
-      <div> You've added wine successfully</div>
+      <div> Wino zostało dodane do twojej bazy!</div>
     </React.Fragment>
   );
 };
