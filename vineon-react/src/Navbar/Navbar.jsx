@@ -37,6 +37,7 @@ export const Navbar = () => {
           VineOn
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+            <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
             <NavbarItem path="/user" title="Profile"></NavbarItem>
             <Link to="/user/logout" onClick={() => logoutUser}>
               Logout
@@ -55,6 +56,7 @@ export const Navbar = () => {
           VineOn
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
+            <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
             <NavbarItem path="/user/store" title="Profile"></NavbarItem>
             <Link to="/user/logout" onClick={() => logoutStore}>
               Logout

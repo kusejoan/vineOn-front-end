@@ -83,7 +83,7 @@ const RecommendationsComponent = ({ history }) => {
   return (
     <React.Fragment>
       <div>Lista wszystkich polecanych win:</div>
-      {reccommendations.map(
+      {recommendationsList.map(
         displayWine(setWineName, setCountry, setYear, setColor, setType)
       )}
     </React.Fragment>
