@@ -81,6 +81,9 @@ export const UserProfile = ({history}) => {
                 value={country}
               />
             </p>
+            <p>
+            <input type="submit" value="Submit" />
+            </p>
           </fieldset>
         </form>
       </p>
