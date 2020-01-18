@@ -45,6 +45,8 @@ import { AllUsers } from "./User/AllUsers";
 import { NoMatchesFound } from "./Wine/NoMatchesFound";
 import { SearchWine } from "./Wine/WineSearch";
 import ResizeImage from 'react-resize-image'
+import { SearchResult } from "./Wine/SearchResult";
+
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -71,6 +73,8 @@ export const App = () => {
                         <Route exact path="/" component={LoginPage} />
                         <Route exact path="/added" component={AddSuccess} />
                         <Route exact path="/failure" component={AddFailure} />
+                        <Route exact path="/searchresult" component={SearchResult} />
+
                         <Route
                           exact
                           path="/nomatchesfound"

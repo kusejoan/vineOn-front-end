@@ -8,7 +8,6 @@ import { NavbarItem } from "./NavbarItem";
 const logoutUser = removeCookie => () => {
   removeCookie("role");
   removeCookie("session");
-  console.log("dupa");
 };
 const logoutStore = removeCookie => () => {
   removeCookie("role");
@@ -39,7 +38,9 @@ export const Navbar = ({ history }) => {
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
             <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
-            <NavbarItem path="/user" title="Profile"></NavbarItem>
+            <NavbarItem path="/user" title="Profil"></NavbarItem>
+            <NavbarItem path="/user/searchwine" title="Wyszukaj"></NavbarItem>
+
             <NavbarItem
               path="/user/logout"
               callback={logoutUser(removeCookie)}
@@ -59,7 +60,9 @@ export const Navbar = ({ history }) => {
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
             <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
-            <NavbarItem path="/user/store" title="Profile"></NavbarItem>
+            <NavbarItem path="/user/store" title="Profil"></NavbarItem>
+            <NavbarItem path="/user/searchwine" title="Wyszukaj"></NavbarItem>
+
             <Link to="/user/logout" onClick={() => logoutStore}>
               Logout
             </Link>

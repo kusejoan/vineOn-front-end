@@ -5,8 +5,11 @@ import { withRouter, Link } from "react-router-dom";
 import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
+import { CookiesProvider, useCookies } from "react-cookie";
+
 
 const WineSearchName = (
+  setCookie,
   wineName,
   history,
   setFoundWines,
@@ -19,76 +22,40 @@ const WineSearchName = (
   const response = WineService().wineSearchName(wineName);
   response
     .then(value => {
-      if (value.success == true) {
+      if (value.success == true && value.wines !== null) {
         setFoundWines(value.wines);
-        return WinesList(
-          value.wines,
-          setWineName,
-          setCountry,
-          setYear,
-          setColor,
-          setType
-        );
+        setCookie("searchRes", value.wines);
+        history.push("/searchresult");
       } else if (value.success === false) {
         history.push("/failure");
+      } else if (value.success === true && value.wines === null) {
+        history.push("/nomatchesfound");
       }
     })
     .catch(error => console.log(error));
 };
 
-const WineSearchColorType = (color, type, history, setFoundWines) => {
+const WineSearchColorType = (
+  setCookie,
+  color,
+  type,
+  history,
+  setFoundWines
+) => {
   const response = WineService().wineSearchColorType(color, type);
   response
     .then(value => {
       if (value.success == true) {
         setFoundWines(value.wines);
+        setCookie("searchRes", value.wines);
+        history.push("/searchresult");
       } else if (value.success === false) {
         history.push("/failure");
+      } else if (value.success === true && value.wines === null) {
+        history.push("/nomatchesfound");
       }
     })
     .catch(error => console.log(error));
-};
-
-const displayWine = (
-  setWineName,
-  setCountry,
-  setYear,
-  setColor,
-  setType
-) => pwine => (
-  <React.Fragment>
-    <WineContext.Consumer>
-      {({ wine, setWine }) => (
-        <Link
-          to="/wine"
-          onClick={() => {
-            setWine(pwine);
-          }}
-        >
-          {pwine.wineName}
-        </Link>
-      )}
-    </WineContext.Consumer>
-    <br />
-  </React.Fragment>
-);
-
-const WinesList = (
-  wines,
-  setWineName,
-  setCountry,
-  setYear,
-  setColor,
-  setType
-) => {
-  return (
-    <React.Fragment>
-      <div>Lista znalezionych win:</div>
-      {wines.map(
-        displayWine(setWineName, setCountry, setYear, setColor, setType)
-      )}
-    </React.Fragment>
-  );
 };
 
 const SearchWineComponent = ({ history }) => {
@@ -98,6 +65,10 @@ const SearchWineComponent = ({ history }) => {
   const [year, setYear] = useState("");
   const [color, setColor] = useState("");
   const [type, setType] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "JSESSIONID",
+    "searchRes"
+  ]);
 
   return (
     <WineContext.Consumer>
@@ -107,6 +78,7 @@ const SearchWineComponent = ({ history }) => {
             onSubmit={event => {
               event.preventDefault();
               WineSearchName(
+                setCookie,
                 wineName,
                 history,
                 setFoundWines,
@@ -134,7 +106,13 @@ const SearchWineComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              WineSearchColorType(color, type, history, setFoundWines);
+              WineSearchColorType(
+                setCookie,
+                color,
+                type,
+                history,
+                setFoundWines
+              );
             }}
           >
             <fieldset>
