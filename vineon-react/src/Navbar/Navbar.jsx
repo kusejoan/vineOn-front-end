@@ -75,7 +75,8 @@ export const Navbar = () => {
           VineOn
           <form>
             <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
-            <NavbarItem path="/login" title="Login"></NavbarItem>
+            <NavbarItem path="/register" title="Sing up"></NavbarItem>
+            <NavbarItem path="/login" title="Sing in"></NavbarItem>
           </form>
         </div>
         <br />

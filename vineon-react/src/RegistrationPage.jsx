@@ -67,38 +67,34 @@ const RegistrationPageComponent = ({ history }) => {
           >
             <fieldset className="login-form">
               <p>
-                username:
                 <input className="login-input"
-                  type="text"
+                  type="text" placeholder="Username"
                   onChange={event => setUsername(event.target.value)}
                   value={username}
                 />
               </p>
               <p>
-                password:
                 <input className="login-input"
-                  type="text"
+                  type="password" placeholder="Password"
                   onChange={event => setPassword(event.target.value)}
                   value={password}
                 />
               </p>
               <p>
-                confirm password:
                 <input className="login-input"
-                  type="text"
+                  type="password" placeholder="Confirm Password"
                   onChange={event => setConfirmPassword(event.target.value)}
                   value={confirmPassword}
                 />
               </p>
               <p>
-                role:
                 <input className="login-input"
-                  type="text"
+                  type="text" placeholder="Role"
                   onChange={event => setRole(event.target.value)}
                   value={role}
                 />
               </p>
-              <input className="login-input submit-button" type="submit" value="Zarejestruj" />
+              <input className="login-input submit-button" type="submit" value="Sign up" />
             </fieldset>
           </form>
         </React.Fragment>

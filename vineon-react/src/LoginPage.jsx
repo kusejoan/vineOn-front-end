@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import { UserContext } from "./User/UserContext";
 import { useCookies, withCookies } from "react-cookie";
 import "./LoginPage.css";
-import {Navbar} from "./Navbar/Navbar";
 import {ReactComponent as Vineicon} from "./icon.svg";
 
 
@@ -46,20 +45,20 @@ const LoginPageComponent = ({ history }) => {
               login(cookies.JSESSIONID, username, password, history, setUser, setCookie);
             }}
           >
-            <fieldset className="login-form">
-              <input me="login-inputclassNa"
-                     type="text" placeholder="Nazwa użytkownika"
+            <fieldset className="login-form" >
+              <input className="login-input"
+                     type="text" placeholder="Username"
 
                      onChange={event => setUsername(event.target.value)}
                   value={username}
                 />
               <p>
                 <input className="login-input"
-                       type="password" placeholder="Hasło"
+                       type="password" placeholder="Password"
                        value={password} onChange={event => setPassword(event.target.value)}
                 />
               </p>
-              <input className="login-input submit-button"  type="submit" value="Zaloguj" />
+              <input className="login-input submit-button"  type="submit" value="Sign in" />
             </fieldset>
           </form>
         </React.Fragment>
