@@ -12,6 +12,10 @@ const recommended = (setCookie, onlyFollowed, limit, color, country, history) =>
 };
 
 export const UserProfile = ({history}) => {
+  const [onlyFollowed, setOnlyFollowed] = useState("");
+  const [limit, setLimit] = useState("");
+  const [color, setColor] = useState("");
+  const [country, setCountry] = useState("");
   const [cookies, setCookie, removeCookie] = useCookies([
     "session",
     "SonlyFollowed",
@@ -19,6 +23,7 @@ export const UserProfile = ({history}) => {
     "Scolor",
     "Scountry"
   ]);
+
 
   return (
     <React.Fragment>
@@ -48,7 +53,7 @@ export const UserProfile = ({history}) => {
               Brać pod uwagę oceny tlyko śledzonych użytkowników? (true/false):
               <input
                 type="text"
-                onChange={event => setWineName(event.target.value)}
+                onChange={event => setOnlyFollowed(event.target.value)}
                 value={onlyFollowed}
               />
             </p>
@@ -56,7 +61,7 @@ export const UserProfile = ({history}) => {
               limit:
               <input
                 type="text"
-                onChange={event => setYear(event.target.value)}
+                onChange={event => setLimit(event.target.value)}
                 value={limit}
               />
             </p>
@@ -64,7 +69,7 @@ export const UserProfile = ({history}) => {
               color:
               <input
                 type="text"
-                onChange={event => setYear(event.target.value)}
+                onChange={event => setColor(event.target.value)}
                 value={color}
               />
             </p>
