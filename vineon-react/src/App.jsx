@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import logo from './wino.jpg';
 import { LoginPage } from "./LoginPage";
 import { Navbar } from "./Navbar/Navbar";
 import { UserProfile } from "./User/UserProfile";
@@ -43,6 +44,7 @@ import { AddFailure } from "./Wine/AddFailure";
 import { AllUsers } from "./User/AllUsers";
 import { NoMatchesFound } from "./Wine/NoMatchesFound";
 import { SearchWine } from "./Wine/WineSearch";
+import ResizeImage from 'react-resize-image'
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -53,9 +55,7 @@ export const App = () => {
 
   return (
     <CookiesProvider>
-      <div className="app">
-        <div className="up-header"></div>
-        <div className="bottom-header"></div>
+      <div className="app" styles={{ backgroundImage:`url(${logo})`}}>
         <BrowserRouter>
           <div className="container">
             <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>

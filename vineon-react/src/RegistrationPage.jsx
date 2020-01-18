@@ -96,7 +96,7 @@ const RegistrationPageComponent = ({ history }) => {
                   value={role}
                 />
               </p>
-              <input className="login-input submit-button" type="submit" value="Sign up" />
+              <input className="login-input submit-button" type="submit" value="Zarejestruj" />
             </fieldset>
           </form>
         </React.Fragment>
