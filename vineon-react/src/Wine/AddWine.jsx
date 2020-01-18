@@ -6,6 +6,7 @@ import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import "./AddWine.css";
 
 const addWine = (JSESSINID,wineName, country, year, color, type, history, setWine) => {
   const response = WineService().addWine(JSESSINID,wineName, country, year, color, type);
@@ -42,46 +43,41 @@ const AddWineComponent = ({ history }) => {
           >
             <fieldset className="login-form">
               <p>
-                Wine name:
-                <input
-                  type="text"
+                <input className="login-input"
+                  type="text" placeholder="Nazwa"
                   onChange={event => setWineName(event.target.value)}
                   value={wineName}
                 />
               </p>
               <p>
-                country:
-                <input
-                  type="text"
+                <input className="login-input"
+                  type="text" placeholder="Kraj"
                   onChange={event => setCountry(event.target.value)}
                   value={country}
                 />
               </p>
               <p>
-                year:
-                <input
-                  type="text"
+                <input className="login-input"
+                  type="text" placeholder="Rok"
                   onChange={event => setYear(event.target.value)}
                   value={year}
                 />
               </p>
               <p>
-                color:
-                <input
-                  type="text"
+                <input className="login-input"
+                  type="text" placeholder="Kolor"
                   onChange={event => setColor(event.target.value)}
                   value={color}
                 />
               </p>
               <p>
-                type:
-                <input
-                  type="text"
+                <input className="login-input"
+                  type="text" placeholder="Rodzaj"
                   onChange={event => setType(event.target.value)}
                   value={type}
                 />
               </p>
-              <input type="submit" value="Submit" />
+              <input className="login-input submit-button" type="submit" value="Zatwierdź"  />
             </fieldset>
           </form>
         </React.Fragment>
