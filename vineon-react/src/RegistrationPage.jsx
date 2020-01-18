@@ -124,7 +124,7 @@ const RegistrationPageComponent = ({ history }) => {
               <p>
                 <select
                   className="login-input"
-                  onChange={event => setRole(event.target.value)}
+                  onChange={ event => {console.log(event); setRole(event.target.value)}}
                   value={role}
                 >
                   <option value="customer">Klient</option>
