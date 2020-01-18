@@ -13,7 +13,7 @@ const RecommendationsList = (
   color,
   country
 ) => {
-  const response = UserService().reccommendations(
+  const response = UserService().recommendations(
     onlyFollowed,
     limit,
     color,
@@ -53,7 +53,7 @@ const displayWine = (
 );
 
 const RecommendationsComponent = ({ history }) => {
-  const [reccommendations, setRecommendations] = useState([]);
+  const [recommendationsList, setRecommendationsList] = useState([]);
   const [wineName, setWineName] = useState("");
   const [country, setCountry] = useState("");
   const [year, setYear] = useState("");
@@ -72,9 +72,9 @@ const RecommendationsComponent = ({ history }) => {
     "Scountry"
   ]);
 
-  if (reccommendations.length === 0)
+  if (recommendationsList.length === 0)
     RecommendationsList(
-      setRecommendations,
+      setRecommendationsList,
       cookies.SonlyFollowed,
       cookies.Slimit,
       cookies.Scolor,
