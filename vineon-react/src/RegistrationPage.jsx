@@ -90,11 +90,12 @@ const RegistrationPageComponent = ({ history }) => {
                 />
               </p>
               <p>
-                <input className="login-input"
-                  type="text" placeholder="Rola"
+                <select className="login-input">
+                  <option value="customer">Klient</option>
+                  <option value="store">Sklep</option>
                   onChange={event => setRole(event.target.value)}
                   value={role}
-                />
+                </select>
               </p>
               <input className="login-input submit-button" type="submit" value="Zarejestruj" />
             </fieldset>
