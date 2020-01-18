@@ -65,7 +65,7 @@ export const App = () => {
                       </div>
 
                       <div className="content">
-                        <Route exact path="/" component={StartPage} />
+                        <Route exact path="/" component={LoginPage} />
                         <Route exact path="/added" component={AddSuccess} />
                         <Route exact path="/failure" component={AddFailure} />
 

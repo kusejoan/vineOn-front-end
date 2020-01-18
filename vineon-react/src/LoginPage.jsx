@@ -47,7 +47,7 @@ const LoginPageComponent = ({ history }) => {
             }}
           >
             <fieldset className="login-form">
-              <input className="login-input"
+              <input me="login-inputclassNa"
                      type="text" placeholder="Nazwa użytkownika"
 
                      onChange={event => setUsername(event.target.value)}
@@ -60,7 +60,6 @@ const LoginPageComponent = ({ history }) => {
                 />
               </p>
               <input className="login-input submit-button"  type="submit" value="Zaloguj" />
-              <input className="login-input submit-button"  type="button" value="Zarejstruj" onClick={() => register(history)}/>
             </fieldset>
           </form>
         </React.Fragment>
