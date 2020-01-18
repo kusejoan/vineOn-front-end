@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { UserService } from "./user.service";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import { WineContext } from "../Wine/WineContext";
+
 import { CookiesProvider, useCookies } from "react-cookie";
 
 const RecommendationsList = (
