@@ -6,6 +6,7 @@ import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
+import"./add.css";
 
 const AllWinesList = (setAllWines, JSESSIONID, history) => {
   const response = WineService().allWines(JSESSIONID);
@@ -68,7 +69,7 @@ const AllWinesComponent = ({ history }) => {
     AllWinesList(setAllWines, cookies.JSESSIONID, history);
   return (
     <React.Fragment>
-      <div>Lista wszystkich zarejestrowanych win:</div>
+      <div className="add">Lista wszystkich zarejestrowanych win:</div>
       {allWines.map(
         displayWine(setWineName, setCountry, setYear, setColor, setType)
       )}

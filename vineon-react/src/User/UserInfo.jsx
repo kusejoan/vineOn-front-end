@@ -2,7 +2,7 @@ import React from "react";
 import { UserInfoContext } from "./UserInfoContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { UserService } from "./user.service";
-
+import "./Union.css";
 const SetFollow = (username, history) => () => {
   const response = UserService().follow(username);
   response
@@ -42,7 +42,7 @@ export const UserInfo = ({ history }) => {
         setCookie("userInfo", userInfo.username);
         return (
           <React.Fragment>
-            <div>
+            <div className="union">
               {" "}
               Profil użytkownika: {userInfo.username} <br />
             </div>

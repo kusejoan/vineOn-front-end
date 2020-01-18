@@ -70,28 +70,28 @@ const RegistrationPageComponent = ({ history }) => {
             <fieldset className="login-form">
               <p>
                 <input className="login-input"
-                  type="text" placeholder="Username"
+                  type="text" placeholder="Nazwa użytkownika"
                   onChange={event => setUsername(event.target.value)}
                   value={username}
                 />
               </p>
               <p>
                 <input className="login-input"
-                  type="password" placeholder="Password"
+                  type="password" placeholder="Hasło"
                   onChange={event => setPassword(event.target.value)}
                   value={password}
                 />
               </p>
               <p>
                 <input className="login-input"
-                  type="password" placeholder="Confirm Password"
+                  type="password" placeholder="Powtórz hasło"
                   onChange={event => setConfirmPassword(event.target.value)}
                   value={confirmPassword}
                 />
               </p>
               <p>
                 <input className="login-input"
-                  type="text" placeholder="Role"
+                  type="text" placeholder="Rola"
                   onChange={event => setRole(event.target.value)}
                   value={role}
                 />

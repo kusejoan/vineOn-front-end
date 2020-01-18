@@ -1,0 +1,10 @@
+.union{
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    font: 15px sans-serif;
+    border: 2px solid rgb(52,54,66);
+    border-radius: 8px;
+    background-color: white;
+    padding:12px 40px;
+}

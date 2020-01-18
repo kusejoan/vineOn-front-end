@@ -36,8 +36,8 @@ export const Navbar = ({ history }) => {
         <div className="navbar">
           VineOn
           <form>
-            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
-            <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
+            <NavbarItem path="/user/getAllWines" title="Wina"></NavbarItem>
+            <NavbarItem path="/user/getAllUsers" title="Użytkownicy"></NavbarItem>
             <NavbarItem path="/user" title="Profil"></NavbarItem>
             <NavbarItem path="/user/searchwine" title="Wyszukaj"></NavbarItem>
 
@@ -58,8 +58,8 @@ export const Navbar = ({ history }) => {
         <div>
           VineOn
           <form>
-            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
-            <NavbarItem path="/user/getAllUsers" title="All users"></NavbarItem>
+            <NavbarItem path="/user/getAllWines" title="Wina"></NavbarItem>
+            <NavbarItem path="/user/getAllUsers" title="Użytkownicy"></NavbarItem>
             <NavbarItem path="/user/store" title="Profil"></NavbarItem>
             <NavbarItem path="/user/searchwine" title="Wyszukaj"></NavbarItem>
 
@@ -79,9 +79,9 @@ export const Navbar = ({ history }) => {
         <div className="navbar">
           VineOn
           <form>
-            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
-            <NavbarItem path="/register" title="Sing up"></NavbarItem>
-            <NavbarItem path="/login" title="Sing in"></NavbarItem>
+            <NavbarItem path="/user/getAllWines" title="Wina"></NavbarItem>
+            <NavbarItem path="/register" title="Zarejestruj"></NavbarItem>
+            <NavbarItem path="/login" title="Zaloguj"></NavbarItem>
           </form>
         </div>
         <br />
@@ -94,9 +94,9 @@ export const Navbar = ({ history }) => {
         <div className="navbar">
           VineOn
           <form>
-            <NavbarItem path="/user/getAllWines" title="All wines"></NavbarItem>
-            <NavbarItem path="/register" title="Sing up"></NavbarItem>
-            <NavbarItem path="/login" title="Sing in"></NavbarItem>
+            <NavbarItem path="/user/getAllWines" title="Wina"></NavbarItem>
+            <NavbarItem path="/register" title="Zarejestruj"></NavbarItem>
+            <NavbarItem path="/login" title="Zaloguj"></NavbarItem>
           </form>
         </div>
         <br />

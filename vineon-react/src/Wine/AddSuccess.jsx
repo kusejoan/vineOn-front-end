@@ -1,9 +1,10 @@
 import React from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
+import"./add.css";
 export const AddSuccess = () => {
   return (
     <React.Fragment>
-      <div> Wino zostało dodane do twojej bazy!</div>
+      <div className="add"> Wino zostało dodane do twojej bazy!</div>
     </React.Fragment>
   );
 };

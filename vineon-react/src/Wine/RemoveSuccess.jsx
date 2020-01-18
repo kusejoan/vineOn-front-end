@@ -1,10 +1,10 @@
 import React from "react";
 import { CookiesProvider, useCookies } from "react-cookie";
-
+import"./add.css";
 export const RemoveSuccess = () => {
   return (
     <React.Fragment>
-      <div> Wino zostało usunięte.</div>
+      <div className="add"> Wino zostało usunięte.</div>
     </React.Fragment>
   );
 };
