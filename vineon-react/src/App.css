@@ -1,8 +1,9 @@
 .app {
   height: 100vh;
   background: rgb(242,235,199);
-}
+  height: auto;
 
+}
 .container{
   background: rgb(242,235,199);
   width: 600px;

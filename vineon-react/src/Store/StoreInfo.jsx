@@ -8,15 +8,15 @@ export const StoreInfo = () => (
       {({ storeInfo, setStoreInfo }) => (
         <div>
             <div className="storeInfo">
-              Welcome to store: {storeInfo.storeName}<br /> info: <br />{" "}
-              city: {storeInfo.city} <br />
-              country: {storeInfo.country} <br />
-              website: {storeInfo.website}
+              Witamy w sklepie: {storeInfo.storeName}<br /> Informacje: <br />{" "}
+              Miasto: {storeInfo.city} <br />
+              Kraj: {storeInfo.country} <br />
+              Adres strony: {storeInfo.website}
 
           </div>
           <form>
-            <button type="submit" formAction="/user/winesofstore">
-              Wines of this store
+            <button className="label-container" type="submit" formAction="/user/winesofstore">
+              Dostępne wina
             </button>
           </form>
         </div>

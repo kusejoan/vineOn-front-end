@@ -4,7 +4,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 export const RemoveSuccess = () => {
   return (
     <React.Fragment>
-      <div> You've removed wine successfully</div>
+      <div> Wino zostało usunięte.</div>
     </React.Fragment>
   );
 };
