@@ -11,7 +11,8 @@ const RecommendationsList = (
   onlyFollowed,
   limit,
   color,
-  country
+  country,
+  history
 ) => {
   const response = UserService().recommendations(
     onlyFollowed,
@@ -25,7 +26,10 @@ const RecommendationsList = (
         setRecommendations(value.wines);
       } else if (value.success === false) {
         history.push("/failure");
-      } else if (value.success === true && value.message === "There are no wines that match criteria") {
+      } else if (
+        value.success === true &&
+        value.message === "There are no wines that match criteria"
+      ) {
         history.push("/nomatchesfound");
       }
     })
@@ -82,7 +86,8 @@ const RecommendationsComponent = ({ history }) => {
       cookies.SonlyFollowed,
       cookies.Slimit,
       cookies.Scolor,
-      cookies.Scountry
+      cookies.Scountry,
+      history
     );
   return (
     <React.Fragment>

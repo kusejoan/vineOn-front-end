@@ -13,6 +13,7 @@ const allWinesUrl = `${API_URL}/user/getAllWines`;
 const averageRatingUrl = `${API_URL}/user/averagerating`;
 const importCsvUrl = `${API_URL}/user/store/importcsv`;
 const winesOfStoreUrl = `${API_URL}/user/winesofstore`;
+const wineSearchUrl = `${API_URL}/user/searchwine`;
 
 export const WineService = () => ({
   async addWine(JSESSINID, wineName, country, year, color, type) {
@@ -114,6 +115,30 @@ export const WineService = () => ({
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { JSESSINID }
+      })
+    );
+
+    return response.data;
+  },
+  async wineSearchName(wineName) {
+    console.log(wineSearchUrl);
+    const response = await Axios.post(
+      wineSearchUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { wineName }
+      })
+    );
+
+    return response.data;
+  },
+  async wineSearchColorType(color, type) {
+    console.log(wineSearchUrl);
+    const response = await Axios.post(
+      wineSearchUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: { color, type }
       })
     );
 

@@ -1,25 +1,98 @@
 import React, { useState } from "react";
 import { UserService } from "../User/user.service";
 import { WineService } from "./wine.service";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { WineContext } from "./WineContext";
 import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
 
-
-const WineSearch = (wineName, country, year, color, type, history, setWine) => {
-  const response = WineService().addWine(wineName, country, year, color, type);
+const WineSearchName = (
+  wineName,
+  history,
+  setFoundWines,
+  setWineName,
+  setCountry,
+  setYear,
+  setColor,
+  setType
+) => {
+  const response = WineService().wineSearchName(wineName);
   response
     .then(value => {
-      if (value.success === true) {
-        setWine({ wineName: wineName, country: country, year: year, color: color, type: type}); 
-        history.push("/wine");
+      if (value.success == true) {
+        setFoundWines(value.wines);
+        return WinesList(
+          value.wines,
+          setWineName,
+          setCountry,
+          setYear,
+          setColor,
+          setType
+        );
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));
 };
 
-const AddWineComponent = ({ history }) => {
+const WineSearchColorType = (color, type, history, setFoundWines) => {
+  const response = WineService().wineSearchColorType(color, type);
+  response
+    .then(value => {
+      if (value.success == true) {
+        setFoundWines(value.wines);
+      } else if (value.success === false) {
+        history.push("/failure");
+      }
+    })
+    .catch(error => console.log(error));
+};
+
+const displayWine = (
+  setWineName,
+  setCountry,
+  setYear,
+  setColor,
+  setType
+) => pwine => (
+  <React.Fragment>
+    <WineContext.Consumer>
+      {({ wine, setWine }) => (
+        <Link
+          to="/wine"
+          onClick={() => {
+            setWine(pwine);
+          }}
+        >
+          {pwine.wineName}
+        </Link>
+      )}
+    </WineContext.Consumer>
+    <br />
+  </React.Fragment>
+);
+
+const WinesList = (
+  wines,
+  setWineName,
+  setCountry,
+  setYear,
+  setColor,
+  setType
+) => {
+  return (
+    <React.Fragment>
+      <div>Lista znalezionych win:</div>
+      {wines.map(
+        displayWine(setWineName, setCountry, setYear, setColor, setType)
+      )}
+    </React.Fragment>
+  );
+};
+
+const SearchWineComponent = ({ history }) => {
+  const [foundWines, setFoundWines] = useState([]);
   const [wineName, setWineName] = useState("");
   const [country, setCountry] = useState("");
   const [year, setYear] = useState("");
@@ -33,7 +106,16 @@ const AddWineComponent = ({ history }) => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              addWine(wineName, country, year, color, type, history, setWine);
+              WineSearchName(
+                wineName,
+                history,
+                setFoundWines,
+                setWineName,
+                setCountry,
+                setYear,
+                setColor,
+                setType
+              );
             }}
           >
             <fieldset>
@@ -45,22 +127,17 @@ const AddWineComponent = ({ history }) => {
                   value={wineName}
                 />
               </p>
-              <p>
-                country:
-                <input
-                  type="text"
-                  onChange={event => setCountry(event.target.value)}
-                  value={country}
-                />
-              </p>
-              <p>
-                year:
-                <input
-                  type="text"
-                  onChange={event => setYear(event.target.value)}
-                  value={year}
-                />
-              </p>
+              <input type="submit" value="Submit" />
+            </fieldset>
+          </form>
+
+          <form
+            onSubmit={event => {
+              event.preventDefault();
+              WineSearchColorType(color, type, history, setFoundWines);
+            }}
+          >
+            <fieldset>
               <p>
                 color:
                 <input
@@ -86,4 +163,4 @@ const AddWineComponent = ({ history }) => {
   );
 };
 
-export const AddWine = withRouter(AddWineComponent);
+export const SearchWine = withRouter(SearchWineComponent);
