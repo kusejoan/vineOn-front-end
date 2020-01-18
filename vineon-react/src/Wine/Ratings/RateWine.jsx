@@ -13,6 +13,8 @@ const rateWine = (wineName, grade, description, history) => {
     .then(value => {
       if (value.success === true) {
         history.push("/wine");
+      }else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

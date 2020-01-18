@@ -14,6 +14,8 @@ const addWine = (JSESSINID,wineName, country, year, color, type, history, setWin
       if (value.success === true) {
         setWine({ wineName: wineName, country: country, year: year, color: color, type: type}); 
         history.push("/wine");
+      }else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

@@ -21,6 +21,8 @@ const login = (cookie, username, password, history, setUser, setCookie) => {
         setCookie('session', value.username, { path: '/' });
         setCookie('role', value.role, { path: '/' });
         history.push("/user/store");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

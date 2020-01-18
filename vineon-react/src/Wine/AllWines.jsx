@@ -7,12 +7,14 @@ import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-const AllWinesList = (setAllWines, JSESSIONID) => {
+const AllWinesList = (setAllWines, JSESSIONID, history) => {
   const response = WineService().allWines(JSESSIONID);
   response
     .then(value => {
       if (value.success == true) {
         setAllWines(value.wines);
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));
@@ -58,7 +60,8 @@ const AllWinesComponent = ({ history }) => {
     "website"
   ]);
 
-  if (allWines.length === 0) AllWinesList(setAllWines, cookies.JSESSIONID);
+  if (allWines.length === 0)
+    AllWinesList(setAllWines, cookies.JSESSIONID, history);
   return (
     <React.Fragment>
       <div>Lista wszystkich zarejestrowanych win:</div>

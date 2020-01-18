@@ -7,7 +7,7 @@ import { UserContext } from "../../User/UserContext";
 import { StoreContext } from "../../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-const AverageRatingGet = (wineName, setGrade, setAmountOfGrades) => {
+const AverageRatingGet = (wineName, setGrade, setAmountOfGrades, history) => {
   const response = WineService().averageRating(wineName);
   response
     .then(value => {
@@ -37,7 +37,7 @@ const AverageRatingComponent = ({ history }) => {
   return (
     <WineContext.Consumer>
     {({ wine, setWine }) => {
-        AverageRatingGet(cookies.wine, setGrade, setAmountOfGrades);
+        AverageRatingGet(cookies.wine, setGrade, setAmountOfGrades, history);
         return (
             <React.Fragment>
                 <div>Średnia ocen: {grade}    Liczba ocen {amountOfGrades}</div>

@@ -21,8 +21,12 @@ const RecommendationsList = (
   );
   response
     .then(value => {
-      if (value.success == true) {
+      if (value.success === true) {
         setRecommendations(value.wines);
+      } else if (value.success === false) {
+        history.push("/failure");
+      } else if (value.success === true && value.message === "There are no wines that match criteria") {
+        history.push("/nomatchesfound");
       }
     })
     .catch(error => console.log(error));

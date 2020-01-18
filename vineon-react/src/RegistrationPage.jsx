@@ -34,6 +34,8 @@ const register = (
         setCookie('session', value.username, { path: '/' });
         setCookie('role', value.role, { path: '/' });
         history.push("/user/store/update");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

@@ -3,13 +3,14 @@ import { UserInfoContext } from "./UserInfoContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { UserService } from "./user.service";
 
-
 const SetFollow = (username, history) => () => {
   const response = UserService().follow(username);
   response
     .then(value => {
       if (value.success === true) {
         history.push("/user/followsuccess");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));
@@ -21,6 +22,8 @@ const SetUnfollow = (username, history) => () => {
     .then(value => {
       if (value.success === true) {
         history.push("/user/unfollowsuccess");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));
@@ -44,13 +47,13 @@ export const UserInfo = ({ history }) => {
               Profile of user: {userInfo.username},<br />
             </div>
 
-<div>
-            <button onClick={SetFollow(cookies.userInfo, history)}>
-              follow
-            </button>
-            <button onClick={SetUnfollow(cookies.userInfo, history)}>
-              unfollow
-            </button>
+            <div>
+              <button onClick={SetFollow(cookies.userInfo, history)}>
+                follow
+              </button>
+              <button onClick={SetUnfollow(cookies.userInfo, history)}>
+                unfollow
+              </button>
             </div>
           </React.Fragment>
         );

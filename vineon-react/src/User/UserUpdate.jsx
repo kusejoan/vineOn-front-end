@@ -31,6 +31,8 @@ const update = (
         setCookie("surname", value.surname, { path: "/" });
         setCookie("birthdate", value.birthdate, { path: "/" });
         history.push("/user");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

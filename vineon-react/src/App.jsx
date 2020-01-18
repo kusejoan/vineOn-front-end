@@ -40,6 +40,7 @@ import { FollowSuccess } from "./User/FollowSuccess";
 import { UnfollowSuccess } from "./User/UnfollowSuccess";
 import { Recommendations } from "./User/UserRecommendations";
 import { AddFailure } from "./Wine/AddFailure";
+import { AllUsers } from "./User/AllUsers";
 
 export const App = () => {
   const [user, setUser] = useState(initialUserState);
@@ -129,6 +130,11 @@ export const App = () => {
                           exact
                           path="/user/getAllWines"
                           component={AllWines}
+                        />
+                        <Route
+                          exact
+                          path="/user/getallusers"
+                          component={AllUsers}
                         />
                         <Route
                           exact

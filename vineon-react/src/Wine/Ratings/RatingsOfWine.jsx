@@ -7,12 +7,17 @@ import { UserContext } from "../../User/UserContext";
 import { StoreContext } from "../../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-const RatingsOfWineList = (setRatingsOfWine, wineName) => {
+const RatingsOfWineList = (setRatingsOfWine, wineName, history) => {
   const response = WineService().ratingsOfWine(wineName);
   response
     .then(value => {
-      setRatingsOfWine(value.grades);
+      if (value.success === true) {
+        setRatingsOfWine(value.grades);
+      } else if (value.success === false) {
+        history.push("/failure");
+      }
     })
+
     .catch(error => console.log(error));
 };
 
@@ -48,20 +53,20 @@ const RatingsOfWineComponent = ({ history }) => {
     "website"
   ]);
 
-  
-
   return (
     <WineContext.Consumer>
-    {({ wine, setWine }) => {
-        if (ratingsOfWine.length === 0) 
-            RatingsOfWineList(setRatingsOfWine, cookies.wine);
+      {({ wine, setWine }) => {
+        if (ratingsOfWine.length === 0)
+          RatingsOfWineList(setRatingsOfWine, cookies.wine, history);
         return (
-            <React.Fragment>
-                <div>Lista ocen:</div>
-                {ratingsOfWine.map(displayRatings(setUsername, setGrade, setDescription))}
-            </React.Fragment>
-        )
-    }}
+          <React.Fragment>
+            <div>Lista ocen:</div>
+            {ratingsOfWine.map(
+              displayRatings(setUsername, setGrade, setDescription)
+            )}
+          </React.Fragment>
+        );
+      }}
     </WineContext.Consumer>
   );
 };

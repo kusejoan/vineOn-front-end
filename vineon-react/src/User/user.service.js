@@ -11,7 +11,7 @@ const storesOfWineUrl = `${API_URL}/user/storesofwine`;
 const followUrl = `${API_URL}/user/follow`;
 const unfollowUrl = `${API_URL}/user/unfollow`;
 const recommendationsUrl = `${API_URL}/user/customer/recommendations`;
-
+const allUsersUrl = `${API_URL}/user/getallusers`;
 
 
 Axios.defaults.withCredentials = true;
@@ -81,6 +81,19 @@ export const UserService = () => ({
       qs.stringify({
         headers: { Accept: APP_JSON },
         params: { username }
+      })
+    );
+
+    return response.data;
+  },
+
+  async allUsers() {
+    console.log(allUsersUrl);
+    const response = await Axios.post(
+      allUsersUrl,
+      qs.stringify({
+        headers: { Accept: APP_JSON },
+        params: {  }
       })
     );
 

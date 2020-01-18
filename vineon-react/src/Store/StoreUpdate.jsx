@@ -23,6 +23,8 @@ const update = (cookie, storeName, address, city, country, website, history, set
         setCookie('country', value.country, { path: '/' });
         setCookie('website', value.website, { path: '/' });
         history.push("/user/store");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

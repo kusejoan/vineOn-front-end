@@ -14,6 +14,8 @@ const removeWineStore = (JSESSIONID, wineName, history, setWine) => {
     .then(value => {
       if (value.success === true) {
         history.push("/removed");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));

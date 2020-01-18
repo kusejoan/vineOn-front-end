@@ -7,13 +7,14 @@ import { UserContext } from "../User/UserContext";
 import { StoreContext } from "../Store/StoreContext";
 import { CookiesProvider, useCookies } from "react-cookie";
 
-
 const addWineStore = (JSESSIONID, wineName, history, setWine) => {
-  const response = WineService().addWineStore(JSESSIONID,wineName);
+  const response = WineService().addWineStore(JSESSIONID, wineName);
   response
     .then(value => {
       if (value.success === true) {
         history.push("/added");
+      } else if (value.success === false) {
+        history.push("/failure");
       }
     })
     .catch(error => console.log(error));
@@ -21,8 +22,14 @@ const addWineStore = (JSESSIONID, wineName, history, setWine) => {
 
 const AddWineStoreComponent = ({ history }) => {
   const [wineName, setWineName] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID","storeName", "address", "city", "country", "website"]);
-
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "JSESSIONID",
+    "storeName",
+    "address",
+    "city",
+    "country",
+    "website"
+  ]);
 
   return (
     <WineContext.Consumer>
