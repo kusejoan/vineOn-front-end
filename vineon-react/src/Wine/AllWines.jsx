@@ -69,10 +69,11 @@ const AllWinesComponent = ({ history }) => {
     AllWinesList(setAllWines, cookies.JSESSIONID, history);
   return (
     <React.Fragment>
-      <div className="add">Lista wszystkich zarejestrowanych win:</div>
+      <div className="add">Lista wszystkich zarejestrowanych win:
       {allWines.map(
         displayWine(setWineName, setCountry, setYear, setColor, setType)
       )}
+      </div>
     </React.Fragment>
   );
 };
