@@ -32,7 +32,7 @@ const UserFollowComponent = ({ history }) => {
   return (
     <React.Fragment>
       <div>
-        Obserwujesz użytkownika: {cookies.userInfo} <br />
+        Od teraz obserwujesz tego użytkownika! <br />
       </div>
     </React.Fragment>
   );

@@ -1,8 +1,8 @@
-wineName,country, year, color, type
-Zinfandel, USA, 2016, red, semi-dry
-Riesling, Niemcy, 2018, white, semi-sweet
-Merlot, Hiszpania, 2017, red, dry
-Cabernet Sauvignon, 2009, red, semi-dry
-Carmenere, Chile, 2018, red, dry 
-Pinot Noir, Francja, 2005, red, dry
-Primitivo, Włochy, 2015, red, dry
+wineName,country,year,color,type
+Zinfandel,USA,2016,red,semi-dry
+Riesling,Niemcy,2018,white,semi-sweet
+Merlot,Hiszpania,2017,red,dry
+Cabernet Sauvignon,Francja,2009,red,semi-dry
+Carmenere,Chile,2018,red,dry
+Pinot Noir,Francja,2005,red,dry
+Primitivo,Włochy,2015,red,dry
