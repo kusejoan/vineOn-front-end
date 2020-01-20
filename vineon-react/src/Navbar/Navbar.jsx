@@ -85,9 +85,11 @@ export const Navbar = ({ history }) => {
             <NavbarItem path="/user/store" title="Profil"></NavbarItem>
             <NavbarItem path="/user/searchwine" title="Wyszukaj"></NavbarItem>
 
-            <Link to="/user/logout" onClick={() => logoutStore}>
-              Logout
-            </Link>
+            <NavbarItem
+              path="/user/logout"
+              callback={logoutStore(removeCookie)}
+              title="Logout"
+            ></NavbarItem>
             {/* <NavbarItem path="/user/logout" callback={() => logoutStore} title="Logout"></NavbarItem> */}
           </form>
         </div>
