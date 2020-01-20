@@ -79,7 +79,7 @@ export const App = () => {
 
   return (
     <CookiesProvider>
-      <div className="app" styles={{ backgroundImage:`url(${logo})`}}>
+      <div className="app">
         <BrowserRouter>
           <div className="container">
             <StoreInfoContext.Provider value={{ storeInfo, setStoreInfo }}>
