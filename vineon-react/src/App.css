@@ -21,11 +21,9 @@
  */
 
 .app {
-  background-image: url(./wino.jpg);
+  background-color: beige;
   flex: 1;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  width: 75%;
+  width: 100%;
   height: 100%;
   text-align: center;
   display: block;
