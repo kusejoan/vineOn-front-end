@@ -39,7 +39,7 @@ const handleChange = ({ target: { files } }) => {
 const send = (data, history) =>{
     const response = WineService().importCsv(data);
     response
-    .then(value => {
+    .then(value => {	
       if (value.success === true) {
         history.push("/added");
       } else if (value.success === false) {
