@@ -30,6 +30,20 @@ import { NavbarItem } from "./NavbarItem";
 const logoutUser = removeCookie => () => {
   removeCookie("role");
   removeCookie("session");
+  removeCookie("storeName");
+  removeCookie("address");
+  removeCookie("city");
+  removeCookie("country");
+  removeCookie("website");
+  removeCookie("userInfo");
+  removeCookie("JSESSIONID");
+  removeCookie("SonlyFollowed");
+  removeCookie("Slimit");
+  removeCookie("Scolor");
+  removeCookie("Scountry");
+  removeCookie("firstName");
+  removeCookie("surname");
+  removeCookie("birthday");
 };
 const logoutStore = removeCookie => () => {
   removeCookie("role");
@@ -39,6 +53,15 @@ const logoutStore = removeCookie => () => {
   removeCookie("city");
   removeCookie("country");
   removeCookie("website");
+  removeCookie("JSESSIONID");
+  removeCookie("userInfo");
+  removeCookie("SonlyFollowed");
+  removeCookie("Slimit");
+  removeCookie("Scolor");
+  removeCookie("Scountry");
+  removeCookie("firstName");
+  removeCookie("surname");
+  removeCookie("birthday");
 };
 
 export const Navbar = ({ history }) => {

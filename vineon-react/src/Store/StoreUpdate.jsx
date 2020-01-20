@@ -31,7 +31,7 @@ const update = (cookie, storeName, address, city, country, website, history, set
   const response = UserService().update(cookie, storeName, address, city, country, website);
   response
     .then(value => {
-      if (value.data.success === true) {
+      if (value.success === true) {
         setStore({
           storeName: value.storeName,
           address: value.address,

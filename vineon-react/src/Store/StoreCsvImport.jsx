@@ -36,19 +36,18 @@ const handleChange = ({ target: { files } }) => {
   file = files[0];
 };
 
-const send = (data, history) =>{
-    const response = WineService().importCsv(data);
-    response
-    .then(value => {
-      if (value.success === true) {
-        history.push("/added");
-      } else if (value.success === false) {
-        history.push("/failure");
-      }
-    })
-}
+const send = (data, history) => {
+  const response = WineService().importCsv(data);
+  response.then(value => {
+    if (value.success === true) {
+      history.push("/added");
+    } else if (value.success === false) {
+      history.push("/failure");
+    }
+  });
+};
 
-const importCSV = (history) => {
+const importCSV = history => {
   let updates = [];
   console.log(file, "file");
   Papa.parse(file, {
@@ -62,12 +61,12 @@ const importCSV = (history) => {
   });
 };
 
-const StoreCsvImportComponent = ({history}) => {
+const StoreCsvImportComponent = ({ history }) => {
   return (
     <div>
       <h1>Add wines from csv file</h1>
       <input type="file" onChange={handleChange} />
-      <button onClick={history => importCSV(history)}>Add</button>
+      <button onClick={() => importCSV(history)}>Add</button>
     </div>
   );
 };
