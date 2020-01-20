@@ -66,7 +66,7 @@ const StoreCsvImportComponent = ({ history }) => {
     <div>
       <h1>Add wines from csv file</h1>
       <input type="file" onChange={handleChange} />
-      <button onClick={() => importCSV(history)}>Add</button>
+      <button onClick={()=> importCSV(history)}>Add</button>
     </div>
   );
 };
